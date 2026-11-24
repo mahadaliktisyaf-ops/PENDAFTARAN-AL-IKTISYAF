@@ -77,7 +77,7 @@
             </label>
             <div class="relative mt-1.5">
               <i data-lucide="user" class="absolute top-3 left-3.5 h-4 w-4 text-slate-400"></i>
-              <input type="text" id="adminUsername" required placeholder="admin" value="admin" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pr-4 pl-10 text-xs text-slate-900 outline-none transition focus:border-brand-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+              <input type="text" id="adminUsername" required placeholder="Masukkan username" autocomplete="username" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pr-4 pl-10 text-xs text-slate-900 outline-none transition focus:border-brand-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white">
             </div>
           </div>
 
@@ -87,7 +87,7 @@
             </label>
             <div class="relative mt-1.5">
               <i data-lucide="lock" class="absolute top-3 left-3.5 h-4 w-4 text-slate-400"></i>
-              <input type="password" id="adminPassword" required placeholder="Masukkan password" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pr-10 pl-10 text-xs text-slate-900 outline-none transition focus:border-brand-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+              <input type="password" id="adminPassword" required placeholder="Masukkan password" autocomplete="current-password" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pr-10 pl-10 text-xs text-slate-900 outline-none transition focus:border-brand-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white">
               <button type="button" onclick="togglePasswordVisibility()" class="absolute top-2.5 right-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
                 <i id="eyeIcon" data-lucide="eye" class="h-4 w-4"></i>
               </button>
@@ -96,10 +96,9 @@
 
           <div class="flex items-center justify-between text-[11px]">
             <label class="flex cursor-pointer items-center gap-2 text-slate-600 dark:text-slate-400">
-              <input type="checkbox" id="rememberMe" checked class="h-3.5 w-3.5 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+              <input type="checkbox" id="rememberMe" class="h-3.5 w-3.5 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
               <span>Ingat sesi di perangkat ini</span>
             </label>
-            <span class="text-slate-400">Default PIN: <strong class="text-brand-600 dark:text-brand-400">admin2027</strong></span>
           </div>
 
           <button type="submit" class="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-brand-600 py-3 text-xs font-bold text-white shadow-md shadow-brand-500/25 transition hover:bg-brand-500">
@@ -150,6 +149,12 @@
             <span>Formulir Baru</span>
           </a>
 
+          <!-- Ganti Sandi Button -->
+          <button onclick="openChangePasswordModal()" class="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
+            <i data-lucide="key" class="h-3.5 w-3.5 text-brand-600 dark:text-brand-400"></i>
+            <span>Ganti Sandi</span>
+          </button>
+
           <!-- Theme Toggle -->
           <button id="themeToggleBtn" aria-label="Ganti Tema" class="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
             <i id="themeIcon" data-lucide="moon" class="h-4 w-4"></i>
@@ -196,17 +201,20 @@
             </div>
           </div>
 
-          <!-- Supabase Cloud Connection Explainer -->
-          <div class="mt-6 rounded-2xl border border-cyan-200 bg-cyan-50/70 p-4 text-xs text-cyan-900 dark:border-cyan-900/50 dark:bg-cyan-950/30 dark:text-cyan-200">
+          <!-- Supabase Cloud Connection Status -->
+          <div class="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4 text-xs text-emerald-900 dark:border-emerald-900/50 dark:bg-emerald-950/30 dark:text-emerald-200">
             <div class="flex items-start gap-3">
-              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-cyan-600 text-white font-bold">
+              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white font-bold">
                 <i data-lucide="database" class="h-4 w-4"></i>
               </div>
               <div class="flex-grow">
-                <span class="font-bold">Info Sinkronisasi Database:</span>
-                <p class="mt-0.5 leading-relaxed text-cyan-800 dark:text-cyan-300">
-                  Data saat ini aktif di <strong>Penyimpanan Browser (LocalStorage)</strong> dan <strong>WhatsApp Panitia</strong>. Jika ingin menyambungkan database Supabase pusat agar realtime multi-user antar dewan guru, cukup masukkan API Key Supabase ke dalam sistem.
+                <span class="font-bold">Status Database Cloud:</span>
+                <p id="dbSyncStatusText" class="mt-0.5 leading-relaxed">
+                  <span class="text-emerald-700 dark:text-emerald-300 font-bold flex items-center gap-1.5">● Terhubung ke Supabase Cloud (Live Realtime)</span>
                 </p>
+                <span class="block mt-1 text-[11px] text-emerald-600/80 dark:text-emerald-400/80 font-mono">
+                  Endpoint: aahvbnpqriilqyapkkdl.supabase.co
+                </span>
               </div>
             </div>
           </div>
@@ -399,6 +407,57 @@
     </div>
   </div>
 
+  <!-- ==================== MODAL GANTI AKUN & PASSWORD ADMIN ==================== -->
+  <div id="changePasswordModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm">
+    <div class="relative w-full max-w-md rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+      
+      <button onclick="closeChangePasswordModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <div class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-600 dark:bg-brand-950 dark:text-brand-400">
+          <i data-lucide="shield-alert" class="h-5 w-5"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900 dark:text-white">Ganti Akun &amp; Sandi Admin</h3>
+          <p class="text-[11px] text-slate-500">Perbarui username dan password akses panitia PPDB</p>
+        </div>
+      </div>
+
+      <form onsubmit="handleSaveNewCredentials(event)" class="mt-5 space-y-3.5">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Username Baru</label>
+          <input type="text" id="newAdminUsername" required placeholder="Contoh: panitia2027" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs text-slate-900 outline-none transition focus:border-brand-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Password / PIN Baru</label>
+          <input type="password" id="newAdminPassword" required minlength="4" placeholder="Minimal 4 karakter" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs text-slate-900 outline-none transition focus:border-brand-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Konfirmasi Password Baru</label>
+          <input type="password" id="confirmAdminPassword" required minlength="4" placeholder="Ketik ulang password baru" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs text-slate-900 outline-none transition focus:border-brand-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+        </div>
+
+        <div id="changePasswordMsg" class="hidden text-xs font-semibold"></div>
+
+        <div class="mt-6 flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+          <button type="button" onclick="closeChangePasswordModal()" class="rounded-xl border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+            Batal
+          </button>
+          <button type="submit" class="rounded-xl bg-brand-600 px-5 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-brand-500">
+            Simpan Perubahan
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
   <script src="app.js"></script>
   <script>
     // Init Admin Auth Check

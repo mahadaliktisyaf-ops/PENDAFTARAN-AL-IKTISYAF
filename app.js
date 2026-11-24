@@ -411,9 +411,20 @@ function handleFormSubmission(event) {
     createdAt: new Date().toISOString()
   };
 
-  // Save to localStorage
+  // Save to Supabase Cloud Database if configured
+  if (typeof dbInsertRegistration === 'function') {
+    dbInsertRegistration(registrationData).then(res => {
+      if (res && res.success) {
+        console.log("Data pendaftaran berhasil tersimpan di Supabase Cloud!");
+      } else {
+        console.warn("Gagal simpan ke Supabase, tersimpan lokal:", res?.error);
+      }
+    }).catch(err => console.error("Supabase insert error:", err));
+  }
+
+  // Backup to localStorage
   const existingList = JSON.parse(localStorage.getItem('ppdb_registrations') || '[]');
-  existingList.push(registrationData);
+  existingList.unshift(registrationData);
   localStorage.setItem('ppdb_registrations', JSON.stringify(existingList));
 
   // Populate Modal UI
@@ -621,19 +632,50 @@ const sampleDemoApplicants = [
   }
 ];
 
-function initAdminDashboard() {
+async function initAdminDashboard() {
+  const dbStatusEl = document.getElementById('dbSyncStatusText');
+  if (dbStatusEl) {
+    dbStatusEl.innerHTML = `<span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-cyan-500 animate-ping"></span>Menyinkronkan data dengan Supabase Cloud...</span>`;
+  }
+
+  // Fetch from Supabase Cloud
+  if (typeof dbGetRegistrations === 'function') {
+    try {
+      const cloudData = await dbGetRegistrations();
+      if (cloudData !== null) {
+        if (cloudData.length > 0) {
+          saveRegistrations(cloudData);
+        } else {
+          // Table exists but no records yet, keep local backup if available
+          let stored = localStorage.getItem('ppdb_registrations');
+          if (!stored || JSON.parse(stored).length === 0) {
+            saveRegistrations(sampleDemoApplicants);
+          }
+        }
+        if (dbStatusEl) {
+          dbStatusEl.innerHTML = `<span class="text-emerald-700 dark:text-emerald-300 font-bold flex items-center gap-1.5">● Terhubung ke Supabase Cloud (Live: ${cloudData.length} data pendaftar tersinkronisasi)</span>`;
+        }
+        renderTable();
+        return;
+      }
+    } catch (e) {
+      console.warn("Could not sync with Supabase:", e);
+    }
+  }
+
+  // Fallback to local
   let stored = localStorage.getItem('ppdb_registrations');
   if (!stored || JSON.parse(stored).length === 0) {
     localStorage.setItem('ppdb_registrations', JSON.stringify(sampleDemoApplicants));
+  }
+  if (dbStatusEl) {
+    dbStatusEl.innerHTML = `<span class="text-slate-600 dark:text-slate-300 font-semibold">● Mode Penyimpanan Browser (Lokal)</span>`;
   }
   renderTable();
 }
 
 function resetDataDemo() {
-  if (confirm("Reset data kembali ke data contoh bawaan?")) {
-    localStorage.setItem('ppdb_registrations', JSON.stringify(sampleDemoApplicants));
-    renderTable();
-  }
+  initAdminDashboard();
 }
 
 function getRegistrations() {
@@ -818,18 +860,30 @@ function updateCurrentStatus() {
   const list = getRegistrations();
   const newStatus = document.getElementById('changeStatusSelect').value;
   if (list[selectedStudentIndex]) {
-    list[selectedStudentIndex].status = newStatus;
+    const item = list[selectedStudentIndex];
+    item.status = newStatus;
     saveRegistrations(list);
     renderTable();
+
+    // Sync to Supabase Cloud
+    if (typeof dbUpdateStatus === 'function' && item.regCode) {
+      dbUpdateStatus(item.regCode, newStatus);
+    }
   }
 }
 
 function deleteStudent(index) {
   if (confirm("Apakah Anda yakin ingin menghapus data calon santri ini?")) {
     const list = getRegistrations();
+    const item = list[index];
     list.splice(index, 1);
     saveRegistrations(list);
     renderTable();
+
+    // Delete from Supabase Cloud
+    if (typeof dbDeleteRegistration === 'function' && item && item.regCode) {
+      dbDeleteRegistration(item.regCode);
+    }
   }
 }
 
@@ -907,6 +961,20 @@ function checkAdminAuth() {
   }
 }
 
+function getAdminCredentials() {
+  const custom = localStorage.getItem('ppdb_admin_custom_credentials');
+  if (custom) {
+    try {
+      return JSON.parse(custom);
+    } catch(e) {}
+  }
+  // Default credentials jika belum pernah diubah
+  return {
+    username: "admin",
+    password: "admin2027"
+  };
+}
+
 function handleAdminLogin(event) {
   event.preventDefault();
   const usernameInput = document.getElementById('adminUsername')?.value.trim();
@@ -916,11 +984,11 @@ function handleAdminLogin(event) {
   const errorAlert = document.getElementById('loginErrorAlert');
   const loginCard = document.getElementById('loginCard');
 
-  // Valid credentials:
-  // Username: admin / panitia
-  // Password: admin2027 / admin2026 / aliktisyaf2027
-  const isValidUsername = usernameInput.toLowerCase() === 'admin' || usernameInput.toLowerCase() === 'panitia';
-  const isValidPassword = passwordInput === 'admin2027' || passwordInput === 'admin2026' || passwordInput === 'aliktisyaf2027' || passwordInput === 'aliktisyaf2026';
+  const creds = getAdminCredentials();
+
+  // Cek apakah cocok dengan kredensial aktif
+  const isValidUsername = usernameInput.toLowerCase() === creds.username.toLowerCase();
+  const isValidPassword = passwordInput === creds.password;
 
   if (isValidUsername && isValidPassword) {
     if (errorAlert) errorAlert.classList.add('hidden');
@@ -943,6 +1011,77 @@ function handleAdminLogin(event) {
       loginCard.classList.add('shake');
     }
   }
+}
+
+function openChangePasswordModal() {
+  const modal = document.getElementById('changePasswordModal');
+  const creds = getAdminCredentials();
+  const userField = document.getElementById('newAdminUsername');
+  const passField = document.getElementById('newAdminPassword');
+  const confField = document.getElementById('confirmAdminPassword');
+  const msg = document.getElementById('changePasswordMsg');
+
+  if (userField) userField.value = creds.username;
+  if (passField) passField.value = '';
+  if (confField) confField.value = '';
+  if (msg) msg.classList.add('hidden');
+
+  if (modal) {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    if (window.lucide) window.lucide.createIcons();
+  }
+}
+
+function closeChangePasswordModal() {
+  const modal = document.getElementById('changePasswordModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+}
+
+function handleSaveNewCredentials(event) {
+  event.preventDefault();
+  const newUser = document.getElementById('newAdminUsername')?.value.trim();
+  const newPass = document.getElementById('newAdminPassword')?.value;
+  const confPass = document.getElementById('confirmAdminPassword')?.value;
+  const msg = document.getElementById('changePasswordMsg');
+
+  if (!newUser || !newPass) {
+    if (msg) {
+      msg.className = "text-xs font-semibold text-rose-500";
+      msg.textContent = "Username dan password tidak boleh kosong!";
+      msg.classList.remove('hidden');
+    }
+    return;
+  }
+
+  if (newPass !== confPass) {
+    if (msg) {
+      msg.className = "text-xs font-semibold text-rose-500";
+      msg.textContent = "Konfirmasi password tidak cocok!";
+      msg.classList.remove('hidden');
+    }
+    return;
+  }
+
+  // Simpan kredensial baru
+  localStorage.setItem('ppdb_admin_custom_credentials', JSON.stringify({
+    username: newUser,
+    password: newPass
+  }));
+
+  if (msg) {
+    msg.className = "text-xs font-semibold text-emerald-600";
+    msg.textContent = "Berhasil! Akun dan password baru telah tersimpan.";
+    msg.classList.remove('hidden');
+  }
+
+  setTimeout(() => {
+    closeChangePasswordModal();
+    alert(`Akun berhasil diperbarui!\n\nUsername Baru: ${newUser}\nPassword baru sudah aktif digunakan.`);
+  }, 800);
 }
 
 function handleAdminLogout() {
