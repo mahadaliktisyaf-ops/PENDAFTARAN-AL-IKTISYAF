@@ -203,19 +203,33 @@
 
           <!-- Supabase Cloud Connection Status -->
           <div class="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4 text-xs text-emerald-900 dark:border-emerald-900/50 dark:bg-emerald-950/30 dark:text-emerald-200">
-            <div class="flex items-start gap-3">
-              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white font-bold">
-                <i data-lucide="database" class="h-4 w-4"></i>
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+              <div class="flex items-start gap-3">
+                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white font-bold">
+                  <i data-lucide="database" class="h-4 w-4"></i>
+                </div>
+                <div class="flex-grow">
+                  <span class="font-bold">Status Database Cloud:</span>
+                  <p id="dbSyncStatusText" class="mt-0.5 leading-relaxed">
+                    <span class="text-emerald-700 dark:text-emerald-300 font-bold flex items-center gap-1.5">● Memeriksa sinkronisasi Supabase...</span>
+                  </p>
+                  <span class="block mt-1 text-[11px] text-emerald-700/80 dark:text-emerald-400/80 font-mono">
+                    Endpoint: aahvbnpqriilqyapkkdl.supabase.co
+                  </span>
+                </div>
               </div>
-              <div class="flex-grow">
-                <span class="font-bold">Status Database Cloud:</span>
-                <p id="dbSyncStatusText" class="mt-0.5 leading-relaxed">
-                  <span class="text-emerald-700 dark:text-emerald-300 font-bold flex items-center gap-1.5">● Terhubung ke Supabase Cloud (Live Realtime)</span>
-                </p>
-                <span class="block mt-1 text-[11px] text-emerald-600/80 dark:text-emerald-400/80 font-mono">
-                  Endpoint: aahvbnpqriilqyapkkdl.supabase.co
-                </span>
-              </div>
+              <button onclick="runSupabaseDiagnostics()" class="self-start sm:self-auto rounded-xl border border-emerald-300 bg-white px-3 py-1.5 text-xs font-semibold text-emerald-800 shadow-sm transition hover:bg-emerald-100 dark:border-emerald-700 dark:bg-slate-800 dark:text-emerald-300">
+                <i data-lucide="activity" class="inline h-3.5 w-3.5 mr-1"></i>
+                Cek Diagnostik Supabase
+              </button>
+            </div>
+            <!-- Diagnostic Alert Box (if error) -->
+            <div id="diagnosticAlertBox" class="mt-3 hidden rounded-xl border border-rose-200 bg-rose-50 p-3 text-xs text-rose-800 dark:border-rose-900/60 dark:bg-rose-950/50 dark:text-rose-200">
+              <span class="font-bold flex items-center gap-1.5 mb-1 text-rose-700 dark:text-rose-300">
+                <i data-lucide="alert-triangle" class="h-4 w-4 shrink-0"></i>
+                Hasil Analisis Diagnostik:
+              </span>
+              <p id="diagnosticAlertText" class="leading-relaxed"></p>
             </div>
           </div>
         </div>

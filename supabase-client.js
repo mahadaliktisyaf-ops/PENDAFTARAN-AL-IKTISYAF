@@ -4,7 +4,7 @@
  */
 
 const SUPABASE_URL = "https://aahvbnpqriilqyapkkdl.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_cC0iZznM7I01g-DFCtR2fQ_ueLn_sE6";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhaHZibnBxcmlpbHF5YXBra2RsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTU1MTY0MTksImV4cCI6MjExMTA5MjQxOX0.YIVkI-yy8lO7yBuPys7S4KHwak03LSdXJqI9a4zZJAM";
 
 // Initialize client if library is loaded, or use REST fetch API
 let supabaseClient = null;
@@ -20,12 +20,58 @@ if (window.supabase && typeof window.supabase.createClient === 'function') {
  * Standard headers for direct REST fetch
  */
 function getSupabaseHeaders() {
-  return {
+  const headers = {
     "apikey": SUPABASE_ANON_KEY,
-    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
     "Content-Type": "application/json",
     "Prefer": "return=representation"
   };
+  // PostgREST only accepts Authorization: Bearer if the key is a valid JWT (starts with eyJ)
+  if (SUPABASE_ANON_KEY.startsWith("eyJ")) {
+    headers["Authorization"] = `Bearer ${SUPABASE_ANON_KEY}`;
+  }
+  return headers;
+}
+
+/**
+ * Diagnostic tool to check connection & table status in Supabase
+ */
+async function dbCheckConnection() {
+  const result = {
+    sdkLoaded: !!(window.supabase && typeof window.supabase.createClient === 'function'),
+    isJwt: SUPABASE_ANON_KEY.startsWith("eyJ"),
+    status: 'checking',
+    httpCode: 0,
+    message: ''
+  };
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/pendaftar_ppdb?select=id&limit=1`, {
+      method: 'GET',
+      headers: getSupabaseHeaders()
+    });
+
+    result.httpCode = res.status;
+
+    if (res.ok) {
+      result.status = 'ok';
+      result.message = 'Koneksi ke Supabase Berhasil! Tabel pendaftar_ppdb aktif dan dapat diakses.';
+    } else {
+      result.status = 'error';
+      const errText = await res.text();
+      if (res.status === 401) {
+        result.message = `Error 401 (Unauthorized): Kunci API (${SUPABASE_ANON_KEY.slice(0, 15)}...) ditolak. Supabase REST membutuhkan Anon Key JWT yang diawali dengan "eyJhbGci...". Detail: ${errText}`;
+      } else if (res.status === 404) {
+        result.message = `Error 404 (Not Found): Tabel 'pendaftar_ppdb' belum dibuat di database Supabase! Buka SQL Editor di Supabase dan jalankan script SQL pembuatan tabel.`;
+      } else {
+        result.message = `HTTP ${res.status}: ${errText}`;
+      }
+    }
+  } catch (err) {
+    result.status = 'network_error';
+    result.message = `Gagal menghubungi server Supabase: ${err.message}`;
+  }
+
+  return result;
 }
 
 /**

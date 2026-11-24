@@ -774,7 +774,17 @@ function renderTable() {
     const tr = document.createElement('tr');
     tr.className = "hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition";
 
-    const dateFormatted = item.createdAt ? new Date(item.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) : '-';
+    let dateFormatted = '-';
+    if (item.createdAt) {
+      try {
+        const d = new Date(item.createdAt);
+        if (!isNaN(d.getTime())) {
+          dateFormatted = d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+      } catch (e) {
+        dateFormatted = '-';
+      }
+    }
     const status = item.status || 'Menunggu';
 
     let statusBadge = `<span class="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-700 dark:bg-amber-950 dark:text-amber-300"><span class="h-1.5 w-1.5 rounded-full bg-amber-500"></span>Menunggu</span>`;
@@ -1130,6 +1140,32 @@ function togglePasswordVisibility() {
     if (eyeIcon) eyeIcon.setAttribute('data-lucide', 'eye');
   }
   if (window.lucide) window.lucide.createIcons();
+}
+
+/* ==================== SUPABASE DIAGNOSTICS ==================== */
+async function runSupabaseDiagnostics() {
+  const alertBox = document.getElementById('diagnosticAlertBox');
+  const alertText = document.getElementById('diagnosticAlertText');
+  if (!alertBox || !alertText) return;
+
+  alertBox.classList.remove('hidden');
+  alertBox.className = "mt-3 rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800 dark:border-amber-900/60 dark:bg-amber-950/50 dark:text-amber-200";
+  alertText.innerHTML = `<span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-amber-500 animate-ping"></span>Sedang memeriksa respon Supabase Cloud...</span>`;
+
+  if (typeof dbCheckConnection !== 'function') {
+    alertBox.className = "mt-3 rounded-xl border border-rose-200 bg-rose-50 p-3 text-xs text-rose-800 dark:border-rose-900/60 dark:bg-rose-950/50 dark:text-rose-200";
+    alertText.innerHTML = "File <code>supabase-client.js</code> tidak terdeteksi atau fungsi <code>dbCheckConnection</code> belum dimuat.";
+    return;
+  }
+
+  const check = await dbCheckConnection();
+  if (check.status === 'ok') {
+    alertBox.className = "mt-3 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-xs text-emerald-800 dark:border-emerald-900/60 dark:bg-emerald-950/50 dark:text-emerald-200";
+    alertText.innerHTML = `<strong>Koneksi Sukses!</strong> ${check.message}`;
+  } else {
+    alertBox.className = "mt-3 rounded-xl border border-rose-200 bg-rose-50 p-3 text-xs text-rose-800 dark:border-rose-900/60 dark:bg-rose-950/50 dark:text-rose-200";
+    alertText.innerHTML = `<strong>Penyebab Masalah Terdeteksi:</strong><br>${check.message}`;
+  }
 }
 
 /* ==================== ON-SCROLL ANIMATIONS (INTERSECTION OBSERVER) ==================== */
