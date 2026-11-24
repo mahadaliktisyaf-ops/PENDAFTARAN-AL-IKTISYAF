@@ -220,3 +220,32 @@ function transformSupabaseRows(rows) {
     createdAt: r.created_at
   }));
 }
+
+/**
+ * Subscribe to realtime updates
+ */
+let realtimeSubscribed = false;
+function dbSubscribeToRegistrations(callback) {
+  if (realtimeSubscribed || !supabaseClient) return;
+  try {
+    supabaseClient
+      .channel('table-db-changes')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'pendaftar_ppdb' },
+        (payload) => {
+          if (typeof callback === 'function') {
+            callback(payload);
+          }
+        }
+      )
+      .subscribe((status) => {
+        if (status === 'SUBSCRIBED') {
+          realtimeSubscribed = true;
+        }
+      });
+  } catch (e) {
+    console.warn("Realtime error:", e);
+  }
+}
+

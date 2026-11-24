@@ -656,6 +656,13 @@ async function initAdminDashboard() {
           dbStatusEl.innerHTML = `<span class="text-emerald-700 dark:text-emerald-300 font-bold flex items-center gap-1.5">● Terhubung ke Supabase Cloud (Live: ${cloudData.length} data pendaftar tersinkronisasi)</span>`;
         }
         renderTable();
+
+        // Aktifkan auto-listener realtime
+        if (typeof dbSubscribeToRegistrations === 'function') {
+          dbSubscribeToRegistrations(() => {
+            initAdminDashboard();
+          });
+        }
         return;
       }
     } catch (e) {
