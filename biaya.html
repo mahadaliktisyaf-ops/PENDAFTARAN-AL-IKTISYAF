@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biaya &amp; Syarat Masuk — Ma'had Al-Iktisyaf Cirebon</title>
+  <meta name="description" content="Rincian pos biaya pendidikan santri baru awal masuk dan bulanan terpisah, nomor rekening resmi BRI, dan checklist persyaratan administrasi berkas.">
+  
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+              400: '#34d399', 500: '#10b981', 600: '#00b865', 700: '#047857',
+              800: '#065f46', 900: '#064e3b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#fafcfa] text-slate-800 antialiased transition-colors duration-300 dark:bg-[#070e18] dark:text-slate-100 flex flex-col min-h-screen relative overflow-x-hidden">
+
+  <!-- BACKGROUND DECORATIVE ELEMENTS -->
+  <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div class="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl dark:bg-emerald-500/10"></div>
+    <div class="absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl dark:bg-cyan-500/10"></div>
+  </div>
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="relative z-50 bg-gradient-to-r from-emerald-600 via-brand-600 to-cyan-600 py-2 text-center text-xs font-semibold text-white shadow-sm">
+    <div class="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4">
+      <span class="rounded-full bg-white/20 px-2 py-0.5 text-[10px] uppercase tracking-wider backdrop-blur-sm">TRANSPARANSI BIAYA</span>
+      <span>Pembayaran Resmi Melalui Bank BRI: 4152-0101-3217-536 a/n Dede Aniq FH</span>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-colors duration-300 dark:border-slate-800/80 dark:bg-[#070e18]/90">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="index.html" class="group flex items-center gap-3">
+        <img src="logo.png" alt="Logo Ma'had Al-Iktisyaf" class="h-10 w-auto object-contain transition-transform group-hover:scale-105">
+        <div>
+          <span class="block text-base font-extrabold tracking-tight text-slate-900 dark:text-white">Ma'had Al-Iktisyaf</span>
+          <span class="block text-xs font-medium text-slate-500 dark:text-slate-400">Sub Ma'had Al-Shighor Gedongan</span>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-6 lg:gap-8 md:flex">
+        <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Beranda</a>
+        <a href="profil.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Profil</a>
+        <a href="pendidikan.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Pendidikan</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Fasilitas</a>
+        <a href="biaya.html" class="text-sm font-bold text-brand-600 dark:text-brand-400">Biaya &amp; Syarat</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Ganti Tema" class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+          <i id="themeIcon" data-lucide="moon" class="h-4 w-4"></i>
+        </button>
+        <a href="pendaftaran.html" class="hidden items-center gap-1.5 rounded-full bg-brand-600 px-5 py-2 text-sm font-bold text-white shadow-md shadow-brand-500/25 hover:bg-brand-500 sm:inline-flex">
+          Daftar Sekarang &rarr;
+        </a>
+        <button id="mobileMenuBtn" aria-label="Buka Menu" class="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-600 md:hidden dark:border-slate-700 dark:text-slate-300">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenuDrawer" class="hidden border-b border-slate-200 bg-white px-4 py-4 md:hidden dark:border-slate-800 dark:bg-[#070e18]">
+      <div class="flex flex-col gap-3">
+        <a href="index.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Beranda</a>
+        <a href="profil.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Profil &amp; Visi Misi</a>
+        <a href="pendidikan.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Pendidikan &amp; Target Belajar</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Fasilitas Pesantren</a>
+        <a href="biaya.html" class="text-sm font-bold text-brand-600 dark:text-brand-400">Biaya &amp; Syarat Masuk</a>
+        <a href="pendaftaran.html" class="mt-2 flex items-center justify-center gap-2 rounded-xl bg-brand-600 py-2.5 text-sm font-semibold text-white">Daftar Sekarang &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="relative z-10 flex-grow py-10 md:py-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      
+      <!-- HERO HEADER CARD -->
+      <div class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/90">
+        <span class="rounded-full bg-cyan-50 px-3.5 py-1 text-xs font-bold text-cyan-700 dark:bg-cyan-950 dark:text-cyan-400">
+          TRANSPARANSI PEMBIAYAAN &amp; BERKAS
+        </span>
+        <h1 class="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+          Rincian Biaya &amp; Persyaratan Masuk
+        </h1>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
+          Seluruh komponen biaya pendidikan Tahun Ajaran 2027-2028 dipaparkan secara transparan per pos pembiayaan (tanpa penggabungan total) agar memudahkan orang tua santri dalam merencanakan investasi ilmu putra-putrinya.
+        </p>
+      </div>
+
+      <!-- POS BIAYA DIPISAH (SESUAI INSTRUKSI USER) -->
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        
+        <!-- KARTU 1: BIAYA AWAL MASUK -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 sm:p-8">
+          <div class="flex items-center justify-between">
+            <span class="rounded-lg bg-cyan-100 px-3 py-1 text-xs font-bold text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300">
+              1. BIAYA AWAL MASUK
+            </span>
+            <span class="text-[11px] text-slate-400">Satu Kali di Awal</span>
+          </div>
+          <p class="mt-3 text-xs text-slate-500">Komponen biaya pendaftaran santri baru saat pertama kali diterima:</p>
+
+          <div class="mt-5 space-y-3 divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+            <div class="flex items-center justify-between pt-3">
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Pendaftaran dan Tes Masuk:</span>
+              <strong class="text-sm font-bold text-slate-900 dark:text-white">Rp 200.000,-</strong>
+            </div>
+            <div class="flex items-center justify-between pt-3">
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Uang Pangkal Pesantren:</span>
+              <strong class="text-sm font-bold text-slate-900 dark:text-white">Rp 1.800.000,-</strong>
+            </div>
+            <div class="flex items-center justify-between pt-3">
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Daftar Ulang Sekolah (SMP):</span>
+              <strong class="text-sm font-bold text-slate-900 dark:text-white">Rp 1.000.000,-</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- KARTU 2: BIAYA BULANAN (SYAHRIAH) -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 sm:p-8">
+          <div class="flex items-center justify-between">
+            <span class="rounded-lg bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+              2. BIAYA BULANAN (SYAHRIAH)
+            </span>
+            <span class="text-[11px] text-slate-400">Maks. Tgl 15 Per Bulan</span>
+          </div>
+          <p class="mt-3 text-xs text-slate-500">Komponen operasional rutin asrama, konsumsi, dan diniyah santri:</p>
+
+          <div class="mt-5 space-y-3 divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+            <div class="flex items-center justify-between pt-3">
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Syahriah Pondok &amp; Makan (3x sehari):</span>
+              <strong class="text-sm font-bold text-slate-900 dark:text-white">Rp 500.000,-</strong>
+            </div>
+            <div class="flex items-center justify-between pt-3">
+              <span class="text-slate-700 dark:text-slate-300 font-medium">SPP Sekolah Formal:</span>
+              <strong class="text-sm font-bold text-emerald-600 dark:text-emerald-400">- (Gratis / Subsidi)</strong>
+            </div>
+            <div class="flex items-center justify-between pt-3">
+              <span class="text-slate-700 dark:text-slate-300 font-medium">SPP Diniyah Salafiyah:</span>
+              <strong class="text-sm font-bold text-slate-900 dark:text-white">Rp 100.000,-</strong>
+            </div>
+            <div class="flex items-center justify-between pt-3">
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Keorganisasian Santri:</span>
+              <strong class="text-sm font-bold text-slate-900 dark:text-white">Rp 50.000,-</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- KARTU 3: BIAYA TAHUNAN -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 sm:p-8 md:col-span-2">
+          <div class="flex items-center justify-between">
+            <span class="rounded-lg bg-amber-100 px-3 py-1 text-xs font-bold text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+              3. BIAYA TAHUNAN
+            </span>
+            <span class="text-[11px] text-slate-400">Sekali Setiap Kenaikan Tahun</span>
+          </div>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2 text-xs">
+            <div class="flex items-center justify-between rounded-xl bg-slate-50 p-4 dark:bg-slate-800/60">
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Daftar Ulang Tahunan:</span>
+              <strong class="text-sm font-bold text-slate-900 dark:text-white">Rp 500.000,-</strong>
+            </div>
+            <div class="flex items-center justify-between rounded-xl bg-slate-50 p-4 dark:bg-slate-800/60">
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Khataman, Wisuda &amp; Ziarah:</span>
+              <strong class="text-sm font-bold text-slate-600 dark:text-slate-300">Ditentukan kemudian</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- KARTU REKENING PEMBAYARAN RESMI DENGAN FITUR SALIN -->
+      <div class="mt-8 overflow-hidden rounded-3xl border border-brand-200 bg-gradient-to-r from-emerald-50 via-brand-50 to-cyan-50 p-6 shadow-sm dark:border-brand-900/60 dark:from-brand-950/40 dark:via-slate-900 dark:to-cyan-950/40 sm:p-8">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="building-2" class="h-5 w-5 text-brand-600"></i>
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300">REKENING RESMI PESANTREN</span>
+            </div>
+            <h3 class="mt-1 text-xl font-black text-slate-900 dark:text-white sm:text-2xl">Bank BRI (Bank Rakyat Indonesia)</h3>
+            <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">Atas Nama: <strong class="text-slate-900 dark:text-white font-bold">Dede Aniq FH</strong></p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="font-mono text-xl sm:text-2xl font-black text-brand-700 dark:text-brand-300 tracking-wider">
+              4152-0101-3217-536
+            </span>
+            <button onclick="copyRekening()" class="inline-flex items-center gap-1.5 rounded-xl bg-brand-600 px-4 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-brand-500">
+              <i data-lucide="copy" class="h-3.5 w-3.5"></i>
+              <span id="copyText">Salin Rekening</span>
+            </button>
+          </div>
+        </div>
+        <p class="mt-4 text-[11px] text-slate-500 dark:text-slate-400">
+          * Catatan: Pembayaran bulanan dilakukan paling lambat tanggal 15 setiap bulannya. Dana yang telah masuk tidak dapat ditarik kembali.
+        </p>
+      </div>
+
+      <!-- INTERACTIVE CHECKLIST PERSYARATAN BERKAS (REACT-STYLE WIDGET) -->
+      <section class="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900/90">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <span class="text-xs font-bold text-cyan-600 uppercase">CEK KELENGKAPAN MANDIRI</span>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white sm:text-2xl">Checklist Persyaratan Berkas Pendaftaran</h2>
+            <p class="text-xs text-slate-500">Centang dokumen yang sudah Anda siapkan untuk memantau kelengkapan berkas santri:</p>
+          </div>
+          <div class="text-right">
+            <span class="text-xs text-slate-500">Kelengkapan: </span>
+            <span id="checklistPercent" class="text-base font-extrabold text-brand-600 dark:text-brand-400">0%</span>
+          </div>
+        </div>
+
+        <!-- Progress bar berkas -->
+        <div class="mt-4 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+          <div id="checklistProgressBar" class="h-full rounded-full bg-brand-600 transition-all duration-300" style="width: 0%;"></div>
+        </div>
+
+        <div class="mt-6 space-y-3">
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-100 p-3.5 transition hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60">
+            <input type="checkbox" onchange="updateChecklist()" class="doc-chk h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+            <span class="text-xs text-slate-700 dark:text-slate-300">Foto copy SKHUN dan Ijazah (3 Lembar)</span>
+          </label>
+
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-100 p-3.5 transition hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60">
+            <input type="checkbox" onchange="updateChecklist()" class="doc-chk h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+            <span class="text-xs text-slate-700 dark:text-slate-300">Foto copy Akte Kelahiran (3 Lembar)</span>
+          </label>
+
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-100 p-3.5 transition hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60">
+            <input type="checkbox" onchange="updateChecklist()" class="doc-chk h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+            <span class="text-xs text-slate-700 dark:text-slate-300">Foto copy Kartu Keluarga / KK (3 Lembar)</span>
+          </label>
+
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-100 p-3.5 transition hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60">
+            <input type="checkbox" onchange="updateChecklist()" class="doc-chk h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+            <span class="text-xs text-slate-700 dark:text-slate-300">Foto copy KTP Orang Tua (Ayah dan Ibu) (3 Lembar)</span>
+          </label>
+
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-100 p-3.5 transition hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60">
+            <input type="checkbox" onchange="updateChecklist()" class="doc-chk h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+            <span class="text-xs text-slate-700 dark:text-slate-300">Foto copy NISN &amp; Kartu KIP jika ada (3 Lembar)</span>
+          </label>
+
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-100 p-3.5 transition hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60">
+            <input type="checkbox" onchange="updateChecklist()" class="doc-chk h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+            <span class="text-xs text-slate-700 dark:text-slate-300">Pas foto 2x3 dan 3x4 (masing-masing 4 lembar latar belakang merah/biru)</span>
+          </label>
+
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-100 p-3.5 transition hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60">
+            <input type="checkbox" onchange="updateChecklist()" class="doc-chk h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+            <span class="text-xs text-slate-700 dark:text-slate-300">Bersedia mematuhi tata tertib Ma'had Al-Iktisyaf &amp; Jenjang SMP</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- CTA BUTTON -->
+      <div class="mt-12 text-center">
+        <a href="pendaftaran.html" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-8 py-3.5 text-xs font-bold text-white shadow-md hover:bg-brand-500">
+          <span>Isi Formulir Santri Baru Sekarang</span>
+          <i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FLOATING WHATSAPP -->
+  <aside aria-label="Layanan Bantuan Cepat" class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/628979832312" target="_blank" class="flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-xs font-bold text-white shadow-xl transition hover:scale-105">
+      <i data-lucide="message-circle" class="h-5 w-5"></i>
+      <span class="hidden sm:inline">Hubungi Panitia PPDB</span>
+    </a>
+  </aside>
+
+  <footer class="border-t border-slate-800 bg-[#070e18] text-slate-400 py-8 text-xs text-center">
+    <p>&copy; 2026 Ma'had Al-Iktisyaf Cirebon • Sub Ma'had Al-Shighor Gedongan</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function updateChecklist() {
+      const allCheckboxes = document.querySelectorAll('.doc-chk');
+      const checked = document.querySelectorAll('.doc-chk:checked');
+      const percent = Math.round((checked.length / allCheckboxes.length) * 100);
+
+      const percentElem = document.getElementById('checklistPercent');
+      const barElem = document.getElementById('checklistProgressBar');
+
+      if (percentElem) percentElem.textContent = `${percent}%`;
+      if (barElem) barElem.style.width = `${percent}%`;
+    }
+  </script>
+</body>
+</html>

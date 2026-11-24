@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma'had Al-Iktisyaf Cirebon — Sub Ma'had Al-Shighor Gedongan</title>
+  <meta name="description" content="Penerimaan Santri Baru Ma'had Al-Iktisyaf Cirebon (Sub Ma'had Al-Shighor Gedongan) Tahun Ajaran 2027-2028. Pendidikan pesantren salafiyah terpadu dengan sekolah formal di SMP Ash Shighor.">
+  
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+              400: '#34d399', 500: '#10b981', 600: '#00b865', 700: '#047857',
+              800: '#065f46', 900: '#064e3b'
+            }
+          },
+          animation: {
+            'float': 'float 4s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Gradient glows and micro-interactions */
+    .glow-effect {
+      background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.12) 0%, rgba(6, 78, 59, 0) 70%);
+    }
+    .dark .glow-effect {
+      background: radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.15) 0%, rgba(7, 14, 24, 0) 70%);
+    }
+    .glass-card {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-[#fafcfa] text-slate-800 antialiased transition-colors duration-300 dark:bg-[#070e18] dark:text-slate-100 flex flex-col min-h-screen relative overflow-x-hidden">
+
+  <!-- BACKGROUND DECORATIVE ELEMENTS -->
+  <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div class="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl dark:bg-emerald-500/10"></div>
+    <div class="absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl dark:bg-cyan-500/10"></div>
+    <div class="absolute bottom-10 left-1/4 h-80 w-80 rounded-full bg-brand-400/10 blur-3xl dark:bg-brand-500/10"></div>
+  </div>
+
+  <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+  <div class="relative z-50 bg-gradient-to-r from-emerald-600 via-brand-600 to-cyan-600 py-2 text-center text-xs font-semibold text-white shadow-sm">
+    <div class="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4">
+      <span class="rounded-full bg-white/20 px-2 py-0.5 text-[10px] uppercase tracking-wider backdrop-blur-sm">PPDB 2027-2028</span>
+      <span>Gelombang 1 Dibuka: Akhir Februari s/d Pertengahan Juni 2027</span>
+      <a href="pendaftaran.html" class="ml-2 hidden underline hover:text-emerald-100 sm:inline">Daftar Sekarang &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-colors duration-300 dark:border-slate-800/80 dark:bg-[#070e18]/90">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="group flex items-center gap-3">
+        <img src="logo.png" alt="Logo Ma'had Al-Iktisyaf" class="h-10 w-auto object-contain transition-transform group-hover:scale-105">
+        <div>
+          <span class="block text-base font-extrabold tracking-tight text-slate-900 dark:text-white">Ma'had Al-Iktisyaf</span>
+          <span class="block text-xs font-medium text-slate-500 dark:text-slate-400">Sub Ma'had Al-Shighor Gedongan</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden items-center gap-6 lg:gap-8 md:flex">
+        <a href="index.html" class="text-sm font-bold text-brand-600 dark:text-brand-400">Beranda</a>
+        <a href="profil.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Profil</a>
+        <a href="pendidikan.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Pendidikan</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Fasilitas</a>
+        <a href="biaya.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Biaya &amp; Syarat</a>
+      </nav>
+
+      <!-- Right CTAs & Tools -->
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Ganti Tema" class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700">
+          <i id="themeIcon" data-lucide="moon" class="h-4 w-4"></i>
+        </button>
+
+        <a href="admin.html" class="hidden items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 lg:inline-flex dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+          <i data-lucide="shield-check" class="h-3.5 w-3.5 text-brand-600 dark:text-brand-400"></i>
+          <span>Dashboard Admin</span>
+        </a>
+
+        <a href="pendaftaran.html" class="hidden items-center gap-1.5 rounded-full bg-brand-600 px-5 py-2 text-sm font-bold text-white shadow-md shadow-brand-500/25 transition hover:bg-brand-500 sm:inline-flex">
+          Daftar Sekarang
+          <i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </a>
+
+        <button id="mobileMenuBtn" aria-label="Buka Menu" class="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 md:hidden dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenuDrawer" class="hidden border-b border-slate-200 bg-white px-4 py-4 md:hidden dark:border-slate-800 dark:bg-[#070e18]">
+      <div class="flex flex-col gap-3">
+        <a href="index.html" class="text-sm font-bold text-brand-600 dark:text-brand-400">Beranda</a>
+        <a href="profil.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Profil &amp; Visi Misi</a>
+        <a href="pendidikan.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Pendidikan &amp; Target Belajar</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Fasilitas Pesantren</a>
+        <a href="biaya.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Biaya &amp; Syarat Masuk</a>
+        <a href="admin.html" class="text-sm font-semibold text-cyan-600 dark:text-cyan-400">Dashboard Admin PPDB</a>
+        <a href="pendaftaran.html" class="mt-2 flex items-center justify-center gap-2 rounded-xl bg-brand-600 py-2.5 text-sm font-semibold text-white">
+          Daftar Sekarang &rarr;
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION (REAKTIF & MODERN) ==================== -->
+  <main class="relative z-10 flex-grow">
+    <section class="relative pt-10 pb-16 md:pt-16 md:pb-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="grid items-center gap-12 lg:grid-cols-12">
+          
+          <!-- Left Hero Content -->
+          <div class="lg:col-span-7 scroll-reveal-left">
+            
+            <div class="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/80 px-4 py-1.5 text-xs font-semibold text-brand-700 shadow-sm backdrop-blur-md dark:border-brand-900/60 dark:bg-brand-950/40 dark:text-brand-400">
+              <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-ping"></span>
+              <span>Penerimaan Santri Baru (PPDB) 2027-2028</span>
+            </div>
+
+            <h1 class="mt-6 text-3xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-[46px] lg:leading-[1.15] dark:text-white">
+              Mencetak Generasi Berakhlak Mulia &amp; <span class="bg-gradient-to-r from-emerald-500 via-brand-500 to-cyan-500 bg-clip-text text-transparent">Berwawasan Global</span>
+            </h1>
+
+            <p class="mt-5 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
+              Tumbuh dalam adab, unggul dalam ilmu. <strong class="text-slate-900 dark:text-white">Ma'had Al-Iktisyaf Cirebon</strong> memadukan kedalaman kajian kitab salafiyah dengan sekolah formal di <span class="font-semibold text-brand-600 dark:text-brand-400">Jenjang SMP</span>.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="mt-8 flex flex-wrap items-center gap-3.5">
+              <a href="pendaftaran.html" class="group inline-flex items-center gap-2.5 rounded-full bg-brand-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-500/25 transition hover:bg-brand-500 hover:shadow-brand-500/40">
+                <span>Isi Formulir Santri Baru</span>
+                <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+              </a>
+
+              <a href="biaya.html" class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:bg-slate-800">
+                <i data-lucide="receipt" class="h-4 w-4 text-cyan-600 dark:text-cyan-400"></i>
+                <span>Rincian Biaya</span>
+              </a>
+            </div>
+
+            <!-- Value Badges -->
+            <div class="mt-8 grid grid-cols-2 gap-3 pt-4 sm:grid-cols-3 sm:gap-4 border-t border-slate-200/80 dark:border-slate-800">
+              <div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-300">
+                <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-300">
+                  <i data-lucide="check" class="h-3 w-3"></i>
+                </div>
+                <span>Asrama Putra/Putri Terpisah</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-300">
+                <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-300">
+                  <i data-lucide="check" class="h-3 w-3"></i>
+                </div>
+                <span>Bimbingan Ustadz 24 Jam</span>
+              </div>
+              <div class="col-span-2 sm:col-span-1 flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-300">
+                <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-300">
+                  <i data-lucide="check" class="h-3 w-3"></i>
+                </div>
+                <span>Kurikulum Terpadu</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Hero Interactive Graphic -->
+          <div class="relative flex justify-center lg:col-span-5 scroll-reveal-right">
+            <div class="relative w-full max-w-sm rounded-[2.5rem] bg-gradient-to-b from-[#e3f7ec] via-white to-[#e8f7fa] p-4 shadow-2xl dark:from-[#112338] dark:via-[#0c1824] dark:to-[#0f2430]">
+              
+              <!-- Floating Pill 1 (Top Left) -->
+              <div class="animate-float absolute -top-4 -left-4 z-20 flex items-center gap-2.5 rounded-2xl border border-white/60 bg-white/90 px-3.5 py-2 shadow-lg backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/90">
+                <div class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
+                  <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>
+                </div>
+                <div>
+                  <span class="block text-[11px] font-bold text-slate-800 dark:text-white">Jenjang SMP</span>
+                  <span class="block text-[9px] text-slate-500">Ijazah Resmi Nasional</span>
+                </div>
+              </div>
+
+              <!-- Floating Pill 2 (Bottom Right) -->
+              <div class="animate-float absolute -bottom-4 -right-4 z-20 flex items-center gap-2.5 rounded-2xl border border-white/60 bg-white/90 px-3.5 py-2 shadow-lg backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/90" style="animation-delay: 2s;">
+                <div class="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-100 text-cyan-600 dark:bg-cyan-950 dark:text-cyan-400">
+                  <i data-lucide="award" class="h-3.5 w-3.5"></i>
+                </div>
+                <div>
+                  <span class="block text-[11px] font-bold text-slate-800 dark:text-white">Tahfidz min. 6 Juz</span>
+                  <span class="block text-[9px] text-slate-500">Beserta Makna &amp; Tafsir</span>
+                </div>
+              </div>
+
+              <!-- Main Inner Dark Arch Card -->
+              <div class="relative flex min-h-[400px] flex-col items-center justify-between overflow-hidden rounded-[2rem] bg-[#0c1824] px-6 py-8 text-center shadow-inner dark:bg-[#070e17]">
+                
+                <!-- Background Ambient Glow -->
+                <div class="absolute -top-12 -right-12 h-44 w-44 rounded-full bg-cyan-500/20 blur-3xl"></div>
+                <div class="absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-brand-500/20 blur-3xl"></div>
+
+                <div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-700/80 bg-slate-800/80 text-brand-400 shadow-md">
+                  <i data-lucide="compass" class="h-6 w-6"></i>
+                </div>
+
+                <div class="my-4">
+                  <span class="text-[11px] font-bold tracking-widest text-emerald-400 uppercase">Motto Pesantren</span>
+                  <h3 class="mt-2 text-2xl font-black leading-snug text-white">
+                    Berakar pada adab.<br>
+                    Bertumbuh dengan ilmu.<br>
+                    <span class="bg-gradient-to-r from-brand-400 to-cyan-400 bg-clip-text text-transparent">Melangkah mendunia.</span>
+                  </h3>
+                  <p class="mt-2 text-xs text-slate-400 italic">"Ma'had Al-Iktisyaf, Ilmi wa Adabi"</p>
+                </div>
+
+                <!-- Feature Mini Cards Inside -->
+                <div class="w-full space-y-2">
+                  <div class="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-900/80 px-3.5 py-2.5 text-left">
+                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400">
+                      <i data-lucide="languages" class="h-4 w-4"></i>
+                    </div>
+                    <div>
+                      <span class="block text-xs font-bold text-white">24H Bilingual Immersion</span>
+                      <span class="block text-[10px] text-slate-400">Bahasa Arab &amp; Inggris dalam aktivitas santri</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-900/80 px-3.5 py-2.5 text-left">
+                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400">
+                      <i data-lucide="scroll" class="h-4 w-4"></i>
+                    </div>
+                    <div>
+                      <span class="block text-xs font-bold text-white">Dirosah Salafiyah &amp; Modern</span>
+                      <span class="block text-[10px] text-slate-400">Kitab kuning standar kurikulum Diniyah Gedongan</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== KEY NUMBERS STATS BAR ==================== -->
+    <section class="border-y border-slate-200/80 bg-white/70 py-8 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/40">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:gap-8">
+          
+          <div class="text-center sm:text-left">
+            <span class="block text-2xl font-black text-slate-900 sm:text-3xl dark:text-white">6 Juz</span>
+            <span class="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-400">Target Minimal Tahfidz &amp; Tafsir</span>
+          </div>
+
+          <div class="text-center sm:text-left">
+            <span class="block text-2xl font-black text-brand-600 sm:text-3xl dark:text-brand-400">2 Bahasa</span>
+            <span class="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-400">Bilingual Harian (Arab &amp; Inggris)</span>
+          </div>
+
+          <div class="text-center sm:text-left">
+            <span class="block text-2xl font-black text-cyan-600 sm:text-3xl dark:text-cyan-400">5.000 m²</span>
+            <span class="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-400">Lahan Asrama, Sekolah &amp; Fasilitas</span>
+          </div>
+
+          <div class="text-center sm:text-left">
+            <span class="block text-2xl font-black text-slate-900 sm:text-3xl dark:text-white">24 Jam</span>
+            <span class="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-400">Pengawasan &amp; Bimbingan Ustadz</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE TAB SHOWCASE (REACT-LIKE FEEL) ==================== -->
+    <section class="py-16 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        
+        <div class="text-center">
+          <span class="text-xs font-bold tracking-wider text-brand-600 uppercase dark:text-brand-400">EKOSISTEM PESANTREN</span>
+          <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+            Pendidikan Komprehensif Berstandar Tinggi
+          </h2>
+          <p class="mx-auto mt-3 max-w-2xl text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+            Klik tab di bawah untuk melihat rincian keunggulan, visi, kurikulum, dan fasilitas yang disiapkan untuk santri.
+          </p>
+        </div>
+
+        <!-- Interactive Tab Buttons -->
+        <div class="mt-8 flex flex-wrap justify-center gap-2">
+          <button onclick="switchTab('tab-visi')" id="btn-tab-visi" class="tab-btn inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition shadow-sm bg-brand-600 text-white">
+            <i data-lucide="compass" class="h-3.5 w-3.5"></i>
+            <span>Visi &amp; Komitmen</span>
+          </button>
+          
+          <button onclick="switchTab('tab-kurikulum')" id="btn-tab-kurikulum" class="tab-btn inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition shadow-sm bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300">
+            <i data-lucide="book-open" class="h-3.5 w-3.5"></i>
+            <span>Target Belajar &amp; Program</span>
+          </button>
+          
+          <button onclick="switchTab('tab-fasilitas')" id="btn-tab-fasilitas" class="tab-btn inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition shadow-sm bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300">
+            <i data-lucide="building" class="h-3.5 w-3.5"></i>
+            <span>Fasilitas 5.000 m²</span>
+          </button>
+
+          <button onclick="switchTab('tab-biaya')" id="btn-tab-biaya" class="tab-btn inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition shadow-sm bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300">
+            <i data-lucide="wallet" class="h-3.5 w-3.5"></i>
+            <span>Transparansi Biaya</span>
+          </button>
+        </div>
+
+        <!-- Tab Content 1: Visi & Komitmen -->
+        <div id="tab-visi" class="tab-pane mt-8 rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/80">
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div>
+              <span class="text-xs font-bold text-brand-600 uppercase dark:text-brand-400">Visi Utama</span>
+              <h3 class="mt-2 text-xl font-bold text-slate-900 sm:text-2xl dark:text-white">
+                "Pusat Pengembangan Model Pendidikan Integratif Kompetitif &amp; Berwawasan Global"
+              </h3>
+              <p class="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-300">
+                Mengintegrasikan nilai-nilai kepesantrenan salafiyah Ahlussunnah wal Jama'ah dengan wawasan sains, teknologi, dan kecakapan bahasa internasional (Arab &amp; Inggris) demi mencetak generasi yang mandiri dan berintegritas.
+              </p>
+              <div class="mt-6">
+                <a href="profil.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:underline dark:text-brand-400">
+                  Baca Profil Lengkap &amp; Sejarah &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-100 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-800/60">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">7 Komitmen Santri Al-Iktisyaf</h4>
+              <ul class="mt-3 space-y-2 text-xs text-slate-600 dark:text-slate-300">
+                <li class="flex items-center gap-2">
+                  <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-[10px] font-bold text-brand-700 dark:bg-brand-950 dark:text-brand-400">1</span>
+                  <span><strong>Akhlakul Karimah:</strong> Membentuk adab luhur sebelum ilmu pengetahuan.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-[10px] font-bold text-brand-700 dark:bg-brand-950 dark:text-brand-400">2</span>
+                  <span><strong>Intelektual / Profesionalitas:</strong> Penguasaan ilmu agama dan sains modern.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-[10px] font-bold text-brand-700 dark:bg-brand-950 dark:text-brand-400">3</span>
+                  <span><strong>Hidup Untuk Pengabdian:</strong> Siap berbakti untuk umat dan agama.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-[10px] font-bold text-brand-700 dark:bg-brand-950 dark:text-brand-400">4</span>
+                  <span><strong>Peduli Terhadap Kemajuan:</strong> Responsif terhadap tantangan zaman.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-[10px] font-bold text-brand-700 dark:bg-brand-950 dark:text-brand-400">5</span>
+                  <span><strong>Kemandirian &amp; Jiwa Wirausaha:</strong> Jiwa santripreneur tangguh.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content 2: Kurikulum -->
+        <div id="tab-kurikulum" class="tab-pane hidden mt-8 rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/80">
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="rounded-2xl border border-slate-100 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-800/60">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-brand-600 dark:bg-brand-950 dark:text-brand-400">
+                <i data-lucide="book-marked" class="h-5 w-5"></i>
+              </div>
+              <h4 class="mt-3 text-sm font-bold text-slate-900 dark:text-white">Tahfidz &amp; Tafsir Al-Qur'an</h4>
+              <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Hafal minimal 6 Juz Al-Qur'an dengan penguasaan makharijul huruf, tajwid, dan tafsir dasarnya.</p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-100 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-800/60">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-100 text-cyan-600 dark:bg-cyan-950 dark:text-cyan-400">
+                <i data-lucide="languages" class="h-5 w-5"></i>
+              </div>
+              <h4 class="mt-3 text-sm font-bold text-slate-900 dark:text-white">Bilingual Conversation</h4>
+              <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Penerapan Bahasa Arab dan Inggris aktif dalam percakapan asrama, Muhadharah, dan public speaking.</p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-100 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-800/60">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
+                <i data-lucide="plane" class="h-5 w-5"></i>
+              </div>
+              <h4 class="mt-3 text-sm font-bold text-slate-900 dark:text-white">Student Exchange Program</h4>
+              <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Program pertukaran santri khusus cabang Al-Shighor untuk memperluas jejaring dan mentalitas global.</p>
+            </div>
+          </div>
+          <div class="mt-6 text-center">
+            <a href="pendidikan.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:underline dark:text-brand-400">
+              Lihat Detail Kurikulum &amp; Jadwal Harian &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Tab Content 3: Fasilitas -->
+        <div id="tab-fasilitas" class="tab-pane hidden mt-8 rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/80">
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-center dark:border-slate-800 dark:bg-slate-800/60">
+              <i data-lucide="home" class="mx-auto h-6 w-6 text-brand-600 dark:text-brand-400"></i>
+              <h5 class="mt-2 text-xs font-bold text-slate-900 dark:text-white">Asrama Terpisah</h5>
+              <p class="mt-1 text-[11px] text-slate-500">Kapasitas nyaman untuk putra &amp; putri.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-center dark:border-slate-800 dark:bg-slate-800/60">
+              <i data-lucide="book-open" class="mx-auto h-6 w-6 text-cyan-600 dark:text-cyan-400"></i>
+              <h5 class="mt-2 text-xs font-bold text-slate-900 dark:text-white">Perpustakaan &amp; Ruang Baca</h5>
+              <p class="mt-1 text-[11px] text-slate-500">Koleksi kitab kuning dan buku referensi.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-center dark:border-slate-800 dark:bg-slate-800/60">
+              <i data-lucide="monitor" class="mx-auto h-6 w-6 text-brand-600 dark:text-brand-400"></i>
+              <h5 class="mt-2 text-xs font-bold text-slate-900 dark:text-white">Lab Komputer &amp; Bahasa</h5>
+              <p class="mt-1 text-[11px] text-slate-500">Penunjang literasi digital dan tes berbasis IT.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-center dark:border-slate-800 dark:bg-slate-800/60">
+              <i data-lucide="shopping-bag" class="mx-auto h-6 w-6 text-cyan-600 dark:text-cyan-400"></i>
+              <h5 class="mt-2 text-xs font-bold text-slate-900 dark:text-white">Kopontren &amp; Perkebunan</h5>
+              <p class="mt-1 text-[11px] text-slate-500">Wahana belajar santripreneur mandiri.</p>
+            </div>
+          </div>
+          <div class="mt-6 text-center">
+            <a href="fasilitas.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:underline dark:text-brand-400">
+              Lihat 8 Sarana &amp; Prasarana Lengkap &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Tab Content 4: Biaya -->
+        <div id="tab-biaya" class="tab-pane hidden mt-8 rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/80">
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-800 dark:bg-slate-800/60">
+              <span class="rounded bg-cyan-100 px-2 py-0.5 text-[11px] font-bold text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300">AWAL MASUK</span>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex justify-between border-b border-slate-200 pb-1.5 dark:border-slate-700">
+                  <span class="text-slate-600 dark:text-slate-300">Pendaftaran &amp; Tes Masuk:</span>
+                  <span class="font-bold text-slate-900 dark:text-white">Rp 200.000,-</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-200 pb-1.5 dark:border-slate-700">
+                  <span class="text-slate-600 dark:text-slate-300">Uang Pangkal:</span>
+                  <span class="font-bold text-slate-900 dark:text-white">Rp 3.300.000,-</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-600 dark:text-slate-300">Daftar Ulang Sekolah:</span>
+                  <span class="font-bold text-slate-900 dark:text-white">Rp 1.000.000,-</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-800 dark:bg-slate-800/60">
+              <span class="rounded bg-emerald-100 px-2 py-0.5 text-[11px] font-bold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">BULANAN (SYAHRIAH)</span>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex justify-between border-b border-slate-200 pb-1.5 dark:border-slate-700">
+                  <span class="text-slate-600 dark:text-slate-300">Syahriah Pondok &amp; Makan:</span>
+                  <span class="font-bold text-slate-900 dark:text-white">Rp 500.000,-</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-200 pb-1.5 dark:border-slate-700">
+                  <span class="text-slate-600 dark:text-slate-300">SPP Diniyah:</span>
+                  <span class="font-bold text-slate-900 dark:text-white">Rp 100.000,-</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-600 dark:text-slate-300">Keorganisasian:</span>
+                  <span class="font-bold text-slate-900 dark:text-white">Rp 50.000,-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-brand-50 p-4 text-xs dark:bg-brand-950/40">
+            <span class="text-brand-800 dark:text-brand-300">Pembayaran resmi melalui <strong>Bank BRI: 4152-0101-3217-536</strong> a/n <strong>Dede Aniq FH</strong></span>
+            <a href="biaya.html" class="font-bold text-brand-700 hover:underline dark:text-brand-300">Lihat Semua Ketentuan Biaya &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== ALUR PENDAFTARAN (INTERACTIVE 4-STEP TIMELINE) ==================== -->
+    <section class="border-t border-slate-100 bg-slate-50/60 py-16 dark:border-slate-800/80 dark:bg-[#0d1627]/40">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        
+        <div class="text-center">
+          <span class="text-xs font-bold tracking-wider text-cyan-600 uppercase dark:text-cyan-400">TAHAPAN PENERIMAAN</span>
+          <h2 class="mt-1 text-2xl font-extrabold text-slate-900 sm:text-3xl dark:text-white">
+            Alur Pendaftaran Santri Baru
+          </h2>
+          <p class="mx-auto mt-2 max-w-lg text-xs text-slate-600 sm:text-sm dark:text-slate-400">
+            Proses mudah dan transparan dari pengisian formulir hingga pengumuman hasil tes.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          
+          <!-- Step 1 -->
+          <div class="relative rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90">
+            <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-100 text-sm font-extrabold text-brand-700 dark:bg-brand-950 dark:text-brand-400">1</span>
+            <h4 class="mt-4 text-sm font-bold text-slate-900 dark:text-white">Isi Formulir Online</h4>
+            <p class="mt-1.5 text-xs text-slate-500 dark:text-slate-400">
+              Lengkapi biodata santri, orang tua, dan asal sekolah pada halaman formulir pendaftaran.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90">
+            <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-100 text-sm font-extrabold text-cyan-700 dark:bg-cyan-950 dark:text-cyan-400">2</span>
+            <h4 class="mt-4 text-sm font-bold text-slate-900 dark:text-white">Transfer Biaya Masuk</h4>
+            <p class="mt-1.5 text-xs text-slate-500 dark:text-slate-400">
+              Biaya tes Rp 200.000 ke rekening BRI: 4152-0101-3217-536 a/n Dede Aniq FH.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90">
+            <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-100 text-sm font-extrabold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">3</span>
+            <h4 class="mt-4 text-sm font-bold text-slate-900 dark:text-white">Konfirmasi WhatsApp</h4>
+            <p class="mt-1.5 text-xs text-slate-500 dark:text-slate-400">
+              Kirim bukti transfer dan kode registrasi ke nomor WhatsApp Admin PPDB untuk diverifikasi.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90">
+            <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-100 text-sm font-extrabold text-purple-700 dark:bg-purple-950 dark:text-purple-400">4</span>
+            <h4 class="mt-4 text-sm font-bold text-slate-900 dark:text-white">Tes Masuk &amp; Pengumuman</h4>
+            <p class="mt-1.5 text-xs text-slate-500 dark:text-slate-400">
+              Pelaksanaan tes membaca Al-Qur'an, wawancara, dan pengumuman hasil seleksi santri.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="mt-10 text-center">
+          <a href="pendaftaran.html" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-8 py-3 text-sm font-bold text-white shadow-md hover:bg-brand-500">
+            Mulai Pendaftaran Sekarang &rarr;
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE ACCORDION FAQ ==================== -->
+    <section class="py-16 md:py-20">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6">
+        
+        <div class="text-center">
+          <span class="text-xs font-bold tracking-wider text-brand-600 uppercase dark:text-brand-400">PERTANYAAN UMUM</span>
+          <h2 class="mt-1 text-2xl font-extrabold text-slate-900 sm:text-3xl dark:text-white">
+            Tanya Jawab Seputar PPDB
+          </h2>
+          <p class="mx-auto mt-2 max-w-lg text-xs text-slate-600 sm:text-sm dark:text-slate-400">
+            Jawaban lengkap untuk pertanyaan yang sering diajukan orang tua dan calon santri.
+          </p>
+        </div>
+
+        <div class="mt-10 space-y-3">
+          
+          <!-- FAQ 1 -->
+          <div class="rounded-2xl border border-slate-200 bg-white transition dark:border-slate-800 dark:bg-slate-900/90">
+            <button onclick="toggleFaq('faq-1')" class="flex w-full items-center justify-between p-5 text-left text-sm font-bold text-slate-900 dark:text-white">
+              <span>Apakah semua santri wajib tinggal di asrama (mukim)?</span>
+              <i id="faq-icon-1" data-lucide="chevron-down" class="h-4 w-4 shrink-0 transition-transform duration-200"></i>
+            </button>
+            <div id="faq-1" class="hidden px-5 pb-5 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+              Ya, seluruh santri diwajibkan bermukim di asrama putra atau asrama putri yang terpisah dalam lingkungan pengawasan dewan asatidz selama 24 jam demi pembiasaan adab dan program bilingual.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="rounded-2xl border border-slate-200 bg-white transition dark:border-slate-800 dark:bg-slate-900/90">
+            <button onclick="toggleFaq('faq-2')" class="flex w-full items-center justify-between p-5 text-left text-sm font-bold text-slate-900 dark:text-white">
+              <span>Bagaimana dengan ijazah dan status sekolah formal santri?</span>
+              <i id="faq-icon-2" data-lucide="chevron-down" class="h-4 w-4 shrink-0 transition-transform duration-200"></i>
+            </button>
+            <div id="faq-2" class="hidden px-5 pb-5 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+              Santri menempuh pendidikan sekolah formal di <strong>Jenjang SMP</strong> yang berakreditasi resmi, sehingga santri mendapatkan ijazah formal nasional yang diakui pemerintah sekaligus ijazah pesantren Diniyah Gedongan.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="rounded-2xl border border-slate-200 bg-white transition dark:border-slate-800 dark:bg-slate-900/90">
+            <button onclick="toggleFaq('faq-3')" class="flex w-full items-center justify-between p-5 text-left text-sm font-bold text-slate-900 dark:text-white">
+              <span>Apa kurikulum utama yang diterapkan di Ma'had Al-Iktisyaf?</span>
+              <i id="faq-icon-3" data-lucide="chevron-down" class="h-4 w-4 shrink-0 transition-transform duration-200"></i>
+            </button>
+            <div id="faq-3" class="hidden px-5 pb-5 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+              Kurikulum memadukan sistem Salafiyah khas Pondok Pesantren Gedongan (kajian kitab kuning, nahwu shorof, tahfidz Al-Qur'an) dengan kurikulum pendidikan nasional resmi Kemendikbud.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="rounded-2xl border border-slate-200 bg-white transition dark:border-slate-800 dark:bg-slate-900/90">
+            <button onclick="toggleFaq('faq-4')" class="flex w-full items-center justify-between p-5 text-left text-sm font-bold text-slate-900 dark:text-white">
+              <span>Bagaimana cara mendapatkan Kode Registrasi setelah mendaftar?</span>
+              <i id="faq-icon-4" data-lucide="chevron-down" class="h-4 w-4 shrink-0 transition-transform duration-200"></i>
+            </button>
+            <div id="faq-4" class="hidden px-5 pb-5 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+              Setelah Anda mengisi seluruh langkah formulir pendaftaran dan menekan tombol Submit, sistem langsung menerbitkan <strong>Kode Registrasi Resmi</strong> (contoh: <code>REG-2026-8492</code>). Anda dapat menyalinnya atau langsung mengirimkannya ke WhatsApp Panitia melalui tombol konfirmasi instan.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== BANNER CTA PENDAFTARAN ==================== -->
+    <section class="py-12">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6">
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-700 via-brand-600 to-cyan-600 p-8 text-center text-white shadow-2xl sm:p-12">
+          
+          <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white/10 blur-2xl"></div>
+          <div class="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-cyan-400/20 blur-2xl"></div>
+
+          <span class="rounded-full bg-white/20 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">Penerimaan Santri Baru</span>
+          <h2 class="mt-4 text-2xl font-black sm:text-4xl">Daftarkan Putra-Putri Anda Sekarang</h2>
+          <p class="mx-auto mt-3 max-w-xl text-xs sm:text-sm text-emerald-50 leading-relaxed">
+            Kuota santri terbatas agar proses pembinaan intensif dan terpantau dengan optimal. Ambil langkah awal menuju generasi Qur'ani berwawasan global.
+          </p>
+
+          <div class="mt-8 flex flex-wrap justify-center gap-3.5">
+            <a href="pendaftaran.html" class="rounded-full bg-white px-8 py-3.5 text-sm font-bold text-brand-700 shadow-md transition hover:bg-slate-100 hover:scale-105">
+              Isi Formulir Santri Baru &rarr;
+            </a>
+            <a href="https://wa.me/628979832312" target="_blank" class="rounded-full border border-white/50 bg-black/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20">
+              Konsultasi WhatsApp (0897-9832-312)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+  <aside aria-label="Layanan Bantuan Cepat" class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/628979832312?text=Halo%20Admin%20PPDB%20Al-Iktisyaf,%20saya%20ingin%20tanya%20seputar%20pendaftaran" target="_blank" class="flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-xs font-bold text-white shadow-xl transition hover:scale-105 hover:bg-[#20ba59]">
+      <i data-lucide="message-circle" class="h-5 w-5"></i>
+      <span class="hidden sm:inline">Tanya Panitia PPDB</span>
+    </a>
+  </aside>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-800 bg-[#070e18] text-slate-400">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+        
+        <div class="col-span-2">
+          <div class="flex items-center gap-3">
+            <img src="logo.png" alt="Logo Ma'had Al-Iktisyaf" class="h-10 w-auto object-contain">
+            <div>
+              <span class="block text-sm font-bold text-white">Ma'had Al-Iktisyaf</span>
+              <span class="block text-[11px] text-slate-400">Sub Ma'had Al-Shighor Gedongan</span>
+            </div>
+          </div>
+          <p class="mt-4 text-xs leading-relaxed text-slate-400 max-w-sm">
+            Yayasan Al-Al-Iktisyaf Pesantren Gedongan.<br>
+            SK Menkumham RI No. AHU-0011434.AH.01.04.Tahun 2023.<br>
+            Mencetak santri berakhlak mulia, menguasai ilmu agama salafiyah dan sains modern.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold tracking-wider text-slate-200 uppercase">Alamat Ma'had</h4>
+          <p class="mt-3 flex items-start gap-2 text-xs text-slate-400">
+            <i data-lucide="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-cyan-400"></i>
+            <span>Blok Talang, Desa Ender, Kecamatan Pangenan, Kabupaten Cirebon, Jawa Barat 45182</span>
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold tracking-wider text-slate-200 uppercase">Kontak &amp; Informasi</h4>
+          <p class="mt-3 flex items-center gap-2 text-xs text-slate-400">
+            <i data-lucide="phone" class="h-4 w-4 text-brand-400"></i>
+            <span>0897-9832-312</span>
+          </p>
+          <div class="mt-3">
+            <a href="admin.html" class="inline-flex items-center gap-1.5 text-xs text-brand-400 hover:underline">
+              <i data-lucide="lock" class="h-3 w-3"></i>
+              <span>Login Admin PPDB</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-slate-800/80 pt-6 text-xs text-slate-500 sm:flex-row">
+        <span>&copy; 2026 Ma'had Al-Iktisyaf Cirebon. All rights reserved.</span>
+        <span>Motto: <em>Ilmi wa Adabi</em></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pendaftaran Santri Baru — Ma'had Al-Iktisyaf Cirebon</title>
+  <meta name="description" content="Formulir Penerimaan Santri Baru (PPDB) Ma'had Al-Iktisyaf Cirebon (Sub Ma'had Al-Shighor Gedongan) Tahun Ajaran 2027-2028.">
+  
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+              400: '#34d399', 500: '#10b981', 600: '#00b865', 700: '#047857',
+              800: '#065f46', 900: '#064e3b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Google Forms style input underline animation */
+    .g-input {
+      border: none;
+      border-bottom: 1.5px solid #cbd5e1;
+      border-radius: 0;
+      background: transparent;
+      padding: 0.5rem 0.25rem;
+      outline: none;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    .dark .g-input {
+      border-bottom: 1.5px solid #334155;
+      color: #f8fafc;
+    }
+    .g-input:focus {
+      border-bottom: 2px solid #00b865;
+    }
+    .dark .g-input:focus {
+      border-bottom: 2px solid #34d399;
+    }
+    .form-card.has-error {
+      border-color: #ef4444 !important;
+    }
+    .form-card.has-error .g-input {
+      border-bottom-color: #ef4444 !important;
+    }
+  </style>
+</head>
+<body class="bg-[#f0f4f9] text-slate-800 antialiased transition-colors duration-300 dark:bg-[#070e18] dark:text-slate-100 flex flex-col min-h-screen relative overflow-x-hidden">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="relative z-50 bg-gradient-to-r from-emerald-600 via-brand-600 to-cyan-600 py-2 text-center text-xs font-semibold text-white shadow-sm">
+    <div class="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4">
+      <span class="rounded-full bg-white/20 px-2 py-0.5 text-[10px] uppercase tracking-wider backdrop-blur-sm">FORMULIR PPDB</span>
+      <span>Penerimaan Santri Baru Tahun Ajaran 2027-2028 • Ma'had Al-Iktisyaf Cirebon</span>
+    </div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-colors duration-300 dark:border-slate-800/80 dark:bg-[#0b1322]/95">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="group flex items-center gap-3">
+        <img src="logo.png" alt="Logo Ma'had Al-Iktisyaf" class="h-10 w-auto object-contain transition-transform group-hover:scale-105">
+        <div>
+          <span class="block text-base font-bold tracking-tight text-slate-900 dark:text-white">Ma'had Al-Iktisyaf</span>
+          <span class="block text-xs font-medium text-slate-500 dark:text-slate-400">Sub Ma'had Al-Shighor Gedongan</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden items-center gap-6 lg:gap-8 md:flex">
+        <a href="index.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Beranda</a>
+        <a href="profil.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Profil</a>
+        <a href="pendidikan.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Pendidikan</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Fasilitas</a>
+        <a href="biaya.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Biaya &amp; Syarat</a>
+      </nav>
+
+      <!-- Right CTAs & Dark Mode -->
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Ganti Tema" class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700">
+          <i id="themeIcon" data-lucide="moon" class="h-4 w-4"></i>
+        </button>
+
+        <a href="https://wa.me/628979832312" target="_blank" class="hidden items-center gap-1.5 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-bold text-brand-700 transition hover:bg-brand-100 sm:inline-flex dark:border-brand-900/60 dark:bg-brand-950/40 dark:text-brand-300">
+          <i data-lucide="phone" class="h-3.5 w-3.5"></i>
+          0897-9832-312
+        </a>
+
+        <button id="mobileMenuBtn" aria-label="Buka Menu" class="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 md:hidden dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenuDrawer" class="hidden border-b border-slate-100 bg-white px-4 py-4 md:hidden dark:border-slate-800 dark:bg-[#0b1322]">
+      <div class="flex flex-col gap-3">
+        <a href="index.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Beranda</a>
+        <a href="profil.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Profil &amp; Visi Misi</a>
+        <a href="pendidikan.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Pendidikan &amp; Target Belajar</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Fasilitas Pesantren</a>
+        <a href="biaya.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Biaya &amp; Syarat Masuk</a>
+        <a href="pendaftaran.html" class="text-sm font-bold text-brand-600 dark:text-brand-400">Formulir Pendaftaran</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN FORM CONTAINER ==================== -->
+  <main class="flex-grow py-8 sm:py-12">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6">
+
+      <!-- FORM HEADER CARD (Google Form Style Header) -->
+      <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/90">
+        <!-- Top Colored Stripe -->
+        <div class="h-3 w-full bg-gradient-to-r from-emerald-500 via-brand-600 to-cyan-500"></div>
+
+        <div class="p-6 sm:p-8">
+          <div class="flex items-center gap-3.5">
+            <img src="logo.png" alt="Logo" class="h-12 w-auto object-contain">
+            <div>
+              <span class="text-xs font-bold tracking-wider text-brand-600 uppercase dark:text-brand-400">PPDB TAHUN AJARAN 2027-2028</span>
+              <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
+                Formulir Pendaftaran Santri Baru
+              </h1>
+            </div>
+          </div>
+
+          <p class="mt-4 text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-300">
+            Selamat datang di formulir pendaftaran <strong>Ma'had Al-Iktisyaf Cirebon</strong> (Sub Ma'had Al-Shighor Gedongan). Silakan lengkapi formulir pendaftaran berikut dengan data yang valid dan benar sesuai dokumen resmi (Akte Lahir, Kartu Keluarga, dan Ijazah).
+          </p>
+
+          <div class="mt-4 rounded-xl border border-slate-100 bg-slate-50 p-3.5 text-xs text-slate-600 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300">
+            <div class="flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-200">
+              <i data-lucide="info" class="h-4 w-4 text-brand-600 dark:text-brand-400 shrink-0"></i>
+              <span>Biaya Pendaftaran &amp; Tes Masuk: Rp 200.000,-</span>
+            </div>
+            <p class="mt-1 pl-6 text-slate-500 dark:text-slate-400">
+              Transfer ke <strong>Bank BRI: 4152-0101-3217-536</strong> a/n <strong>Dede Aniq FH</strong>.
+            </p>
+          </div>
+
+          <div class="mt-5 border-t border-slate-100 pt-3 text-xs font-semibold text-rose-500 dark:border-slate-800">
+            * Menunjukkan pertanyaan yang wajib diisi
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP PROGRESS INDICATOR -->
+      <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/90">
+        <div class="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300">
+          <span id="stepTitleDisplay">Bagian 1 dari 3: Data Diri Calon Santri</span>
+          <span id="stepPercentDisplay" class="text-brand-600 dark:text-brand-400">33%</span>
+        </div>
+        <div class="mt-2.5 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+          <div id="stepProgressBar" class="h-full rounded-full bg-brand-600 transition-all duration-300 ease-out" style="width: 33.33%;"></div>
+        </div>
+        <div class="mt-3 flex justify-between text-[11px] text-slate-500 dark:text-slate-400">
+          <span id="step1Label" class="font-bold text-brand-600 dark:text-brand-400">1. Data Santri</span>
+          <span id="step2Label">2. Orang Tua / Wali</span>
+          <span id="step3Label">3. Data Akademik</span>
+        </div>
+      </div>
+
+      <!-- ==================== FORM BODY ==================== -->
+      <form id="googleStyleForm" onsubmit="handleFormSubmission(event)" novalidate class="mt-6 space-y-4">
+
+        <!-- ============================================================ -->
+        <!-- STEP 1: DATA DIRI CALON SANTRI (Gambar 1, 3, 6)             -->
+        <!-- ============================================================ -->
+        <div id="stepSection1" class="space-y-4">
+
+          <!-- 1. Nama Lengkap -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="namaLengkap">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Nama Lengkap <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Isi Nama Lengkap Sesuai Akte Lahir</p>
+            <div class="mt-4">
+              <input type="text" id="namaLengkap" name="namaLengkap" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 2. Nama Panggilan -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="namaPanggilan">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Nama Panggilan
+            </label>
+            <div class="mt-4">
+              <input type="text" id="namaPanggilan" name="namaPanggilan" placeholder="Your answer" class="g-input text-sm">
+            </div>
+          </div>
+
+          <!-- 3. Jenis Kelamin -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="jenisKelamin">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Jenis Kelamin <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4 space-y-3">
+              <label class="flex cursor-pointer items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
+                <input type="radio" name="jenisKelamin" value="Laki-Laki" required class="h-4 w-4 border-slate-300 text-brand-600 focus:ring-brand-500">
+                <span>Laki-Laki</span>
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
+                <input type="radio" name="jenisKelamin" value="Perempuan" required class="h-4 w-4 border-slate-300 text-brand-600 focus:ring-brand-500">
+                <span>Perempuan</span>
+              </label>
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 4. Tempat Lahir -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="tempatLahir">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Tempat Lahir <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="tempatLahir" name="tempatLahir" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 5. Tanggal Lahir -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="tanggalLahir">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Tanggal Lahir <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Date</p>
+            <div class="mt-4 max-w-xs">
+              <input type="date" id="tanggalLahir" name="tanggalLahir" required class="g-input text-sm cursor-pointer">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 6. NIK -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="nik">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              NIK <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Nomor Induk Kependudukan (sesuai Kartu Keluarga)</p>
+            <div class="mt-4">
+              <input type="text" id="nik" name="nik" required pattern="[0-9]{16}" maxlength="16" placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question (harus 16 digit angka)</span>
+            </div>
+          </div>
+
+          <!-- 7. NISN -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="nisn">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              NISN <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Nomor Induk Siswa Nasional</p>
+            <div class="mt-4">
+              <input type="text" id="nisn" name="nisn" required pattern="[0-9]{10}" maxlength="10" placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question (harus 10 digit angka)</span>
+            </div>
+          </div>
+
+          <!-- 8. Alamat -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="alamat">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Alamat <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Isi Nama jalan/Blok/RT/RW</p>
+            <div class="mt-4">
+              <input type="text" id="alamat" name="alamat" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 9. Kelurahan -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="kelurahan">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Kelurahan <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="kelurahan" name="kelurahan" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 10. Kecamatan -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="kecamatan">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Kecamatan <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="kecamatan" name="kecamatan" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 11. Kota/Kabupaten -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="kotaKabupaten">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Kota/Kabupaten <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="kotaKabupaten" name="kotaKabupaten" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 12. Provinsi -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="provinsi">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Provinsi <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="provinsi" name="provinsi" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons for Step 1 -->
+          <div class="flex items-center justify-between pt-4">
+            <button type="button" onclick="nextStep(1)" class="inline-flex items-center gap-2 rounded-lg bg-[#00b865] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#009b55] focus:outline-none">
+              Next
+            </button>
+            <button type="button" onclick="resetFormConfirmation()" class="text-xs font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200">
+              Clear form
+            </button>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- STEP 2: DATA ORANG TUA / WALI (Gambar 4, 7)                  -->
+        <!-- ============================================================ -->
+        <div id="stepSection2" class="hidden space-y-4">
+
+          <!-- Section Banner -->
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 sm:p-6">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Bagian 2</span>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Data Orang Tua / Wali Santri</h2>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Isi data ayah, ibu, atau wali yang bertanggung jawab atas calon santri.</p>
+          </div>
+
+          <!-- 1. Nama Ayah Kandung -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="namaAyah">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Nama Ayah Kandung <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="namaAyah" name="namaAyah" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 2. Pekerjaan Ayah -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="pekerjaanAyah">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Pekerjaan Ayah <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="pekerjaanAyah" name="pekerjaanAyah" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 3. Nomor Telp/HP (Ayah) -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="noTelpAyah">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Nomor Telp/HP <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="tel" id="noTelpAyah" name="noTelpAyah" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 4. Nama Ibu Kandung -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="namaIbu">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Nama Ibu Kandung <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="namaIbu" name="namaIbu" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 5. Pekerjaan Ibu -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="pekerjaanIbu">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Pekerjaan Ibu <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="pekerjaanIbu" name="pekerjaanIbu" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 6. NoTelp/Hp (Ibu) -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="noTelpIbu">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              NoTelp/Hp <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="tel" id="noTelpIbu" name="noTelpIbu" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 7. Nama Wali -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="namaWali">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Nama Wali
+            </label>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Diisi Jika wali Bukan orang Tua Kandung</p>
+            <div class="mt-4">
+              <input type="text" id="namaWali" name="namaWali" placeholder="Your answer" class="g-input text-sm">
+            </div>
+          </div>
+
+          <!-- 8. Pekerjaan Wali -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="pekerjaanWali">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Pekerjaan Wali
+            </label>
+            <div class="mt-4">
+              <input type="text" id="pekerjaanWali" name="pekerjaanWali" placeholder="Your answer" class="g-input text-sm">
+            </div>
+          </div>
+
+          <!-- 9. No Telp/HP (Wali) -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="noTelpWali">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              No Telp/HP
+            </label>
+            <div class="mt-4">
+              <input type="tel" id="noTelpWali" name="noTelpWali" placeholder="Your answer" class="g-input text-sm">
+            </div>
+          </div>
+
+          <!-- Action Buttons for Step 2 -->
+          <div class="flex items-center justify-between pt-4">
+            <div class="flex items-center gap-3">
+              <button type="button" onclick="prevStep(2)" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700">
+                Back
+              </button>
+              <button type="button" onclick="nextStep(2)" class="inline-flex items-center gap-2 rounded-lg bg-[#00b865] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#009b55] focus:outline-none">
+                Next
+              </button>
+            </div>
+            <button type="button" onclick="resetFormConfirmation()" class="text-xs font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200">
+              Clear form
+            </button>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- STEP 3: DATA AKADEMIK CALON SANTRI (Gambar 2, 5)             -->
+        <!-- ============================================================ -->
+        <div id="stepSection3" class="hidden space-y-4">
+
+          <!-- Section Banner Header: Data Akademik Calon Santri (Sesuai Gambar Google Form) -->
+          <div class="overflow-hidden rounded-2xl border border-indigo-200 bg-white shadow-sm dark:border-indigo-900/50 dark:bg-slate-900/90">
+            <div class="bg-indigo-600 px-5 py-3 text-white dark:bg-indigo-700">
+              <h2 class="text-base font-bold sm:text-lg">Data Akademik Calon Santri</h2>
+            </div>
+          </div>
+
+          <!-- 1. Jenjang Pilihan (Dropdown: SMP, MA/SMK) -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="jenjangPilihan">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Jenjang Pilihan <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <select id="jenjangPilihan" name="jenjangPilihan" required class="w-full max-w-xs rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 transition focus:border-brand-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100">
+                <option value="">Choose</option>
+                <option value="SMP">SMP</option>
+                <option value="MA/SMK">MA/SMK</option>
+              </select>
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 2. Asal Sekolah -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="asalSekolah">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Asal Sekolah <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Nama Sekolah Asal</p>
+            <div class="mt-4">
+              <input type="text" id="asalSekolah" name="asalSekolah" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 3. No Ijazah -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="noIjazah">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              No Ijazah <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="noIjazah" name="noIjazah" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- 4. Tahun Lulus -->
+          <div class="form-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-800 dark:bg-slate-900/90 sm:p-6" data-field="tahunLulus">
+            <label class="block text-sm font-semibold text-slate-900 dark:text-white">
+              Tahun Lulus <span class="text-rose-500 font-bold">*</span>
+            </label>
+            <div class="mt-4">
+              <input type="text" id="tahunLulus" name="tahunLulus" required placeholder="Your answer" class="g-input text-sm">
+            </div>
+            <div class="error-msg hidden mt-2.5 flex items-center gap-1.5 text-xs font-medium text-rose-500">
+              <i data-lucide="alert-circle" class="h-4 w-4 shrink-0"></i>
+              <span>This is a required question</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons for Step 3 (Submit / Kirim) -->
+          <div class="flex items-center justify-between pt-4">
+            <div class="flex items-center gap-3">
+              <button type="button" onclick="prevStep(3)" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700">
+                Back
+              </button>
+              <button type="submit" class="inline-flex items-center gap-2 rounded-lg bg-[#00b865] px-7 py-2.5 text-sm font-bold text-white shadow-md shadow-brand-600/20 transition hover:bg-[#009b55] focus:outline-none">
+                Submit
+                <i data-lucide="send" class="h-4 w-4"></i>
+              </button>
+            </div>
+            <button type="button" onclick="resetFormConfirmation()" class="text-xs font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200">
+              Clear form
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Google Forms Footer Disclaimer -->
+      <div class="mt-10 text-center text-[11px] text-slate-400 dark:text-slate-500 space-y-1">
+        <p>Never submit passwords through this form.</p>
+        <p>Data yang dikirimkan tersimpan secara aman di sistem internal panitia PPDB Ma'had Al-Iktisyaf Cirebon.</p>
+        <div class="pt-2 flex items-center justify-center gap-1.5 font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400">
+          <span>Ma'had Al-Iktisyaf</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== MODAL SUKSES PENDAFTARAN ==================== -->
+  <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm">
+    <div class="relative w-full max-w-lg rounded-3xl border border-slate-100 bg-white p-6 shadow-2xl sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+      
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 dark:bg-brand-950/60 dark:text-brand-400">
+        <i data-lucide="check-circle" class="h-8 w-8"></i>
+      </div>
+
+      <h3 class="mt-4 text-center text-xl font-extrabold text-slate-900 dark:text-white">Pendaftaran Berhasil Disimpan!</h3>
+      <p class="mt-1 text-center text-xs text-slate-500 dark:text-slate-400">
+        Terima kasih, formulir Anda telah tercatat dalam sistem PPDB 2027-2028.
+      </p>
+
+      <!-- Kode Registrasi Card -->
+      <div class="mt-5 rounded-2xl border border-brand-200 bg-brand-50/70 p-4 text-center dark:border-brand-900/60 dark:bg-brand-950/30">
+        <span class="block text-[11px] font-bold text-brand-700 uppercase tracking-wider dark:text-brand-300">NOMOR REGISTRASI RESMI</span>
+        <span id="modalRegCode" class="mt-1 block font-mono text-2xl font-black text-brand-700 dark:text-brand-300">REG-2027-0000</span>
+        <span id="modalStudentName" class="mt-1 block text-xs font-semibold text-slate-800 dark:text-slate-200">Nama Calon Santri</span>
+      </div>
+
+      <!-- Ringkasan Singkat -->
+      <div class="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-3.5 text-xs text-slate-600 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300 space-y-1.5">
+        <div class="flex justify-between">
+          <span class="text-slate-500">Jenjang Pilihan:</span>
+          <span id="modalJenjang" class="font-bold text-slate-900 dark:text-white">-</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">Asal Sekolah:</span>
+          <span id="modalAsalSekolah" class="font-bold text-slate-900 dark:text-white">-</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">NISN / NIK:</span>
+          <span id="modalNisnNik" class="font-mono text-slate-800 dark:text-slate-200">-</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">Nama Orang Tua:</span>
+          <span id="modalOrtu" class="font-medium text-slate-800 dark:text-slate-200">-</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="mt-6 flex flex-col gap-2.5">
+        <a id="waConfirmLink" href="#" target="_blank" class="flex items-center justify-center gap-2 rounded-xl bg-brand-600 py-3 text-sm font-bold text-white shadow-md shadow-brand-600/25 transition hover:bg-brand-500">
+          <i data-lucide="message-circle" class="h-4 w-4"></i>
+          Konfirmasi ke WhatsApp Admin
+        </a>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="copyRegCode()" class="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white py-2.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
+            <i data-lucide="copy" class="h-3.5 w-3.5"></i>
+            <span id="copyBtnText">Salin Nomor ID</span>
+          </button>
+          <button onclick="window.print()" class="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white py-2.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
+            <i data-lucide="printer" class="h-3.5 w-3.5"></i>
+            <span>Cetak Bukti</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP -->
+  <aside aria-label="Layanan Bantuan Cepat" class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/628979832312" target="_blank" class="flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-xs font-bold text-white shadow-xl transition hover:scale-105">
+      <i data-lucide="message-circle" class="h-5 w-5"></i>
+      <span class="hidden sm:inline">Hubungi Panitia PPDB</span>
+    </a>
+  </aside>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-800 bg-[#070e18] text-slate-400 py-8 text-xs text-center">
+    <div class="mx-auto max-w-6xl px-4">
+      <p>&copy; 2026 Ma'had Al-Iktisyaf Cirebon. Sub Ma'had Al-Shighor Gedongan.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

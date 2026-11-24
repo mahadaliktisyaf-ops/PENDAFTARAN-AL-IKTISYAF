@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil &amp; Visi Misi — Ma'had Al-Iktisyaf Cirebon</title>
+  <meta name="description" content="Profil lengkap, sejarah rintisan, figur pengasuh, visi misi dan komitmen Ma'had Al-Iktisyaf Cirebon (Sub Ma'had Al-Shighor Gedongan).">
+  
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+              400: '#34d399', 500: '#10b981', 600: '#00b865', 700: '#047857',
+              800: '#065f46', 900: '#064e3b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#fafcfa] text-slate-800 antialiased transition-colors duration-300 dark:bg-[#070e18] dark:text-slate-100 flex flex-col min-h-screen relative overflow-x-hidden">
+
+  <!-- BACKGROUND DECORATIVE ELEMENTS -->
+  <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div class="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl dark:bg-emerald-500/10"></div>
+    <div class="absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl dark:bg-cyan-500/10"></div>
+  </div>
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="relative z-50 bg-gradient-to-r from-emerald-600 via-brand-600 to-cyan-600 py-2 text-center text-xs font-semibold text-white shadow-sm">
+    <div class="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4">
+      <span class="rounded-full bg-white/20 px-2 py-0.5 text-[10px] uppercase tracking-wider backdrop-blur-sm">PROFIL</span>
+      <span>Yayasan Al-Al-Iktisyaf Pesantren Gedongan (SK Kemenkumham RI No. AHU-0011434.AH.01.04.Tahun 2023)</span>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-colors duration-300 dark:border-slate-800/80 dark:bg-[#070e18]/90">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="index.html" class="group flex items-center gap-3">
+        <img src="logo.png" alt="Logo Ma'had Al-Iktisyaf" class="h-10 w-auto object-contain transition-transform group-hover:scale-105">
+        <div>
+          <span class="block text-base font-extrabold tracking-tight text-slate-900 dark:text-white">Ma'had Al-Iktisyaf</span>
+          <span class="block text-xs font-medium text-slate-500 dark:text-slate-400">Sub Ma'had Al-Shighor Gedongan</span>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-6 lg:gap-8 md:flex">
+        <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Beranda</a>
+        <a href="profil.html" class="text-sm font-bold text-brand-600 dark:text-brand-400">Profil</a>
+        <a href="pendidikan.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Pendidikan</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Fasilitas</a>
+        <a href="biaya.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Biaya &amp; Syarat</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Ganti Tema" class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+          <i id="themeIcon" data-lucide="moon" class="h-4 w-4"></i>
+        </button>
+        <a href="pendaftaran.html" class="hidden items-center gap-1.5 rounded-full bg-brand-600 px-5 py-2 text-sm font-bold text-white shadow-md shadow-brand-500/25 hover:bg-brand-500 sm:inline-flex">
+          Daftar Sekarang &rarr;
+        </a>
+        <button id="mobileMenuBtn" aria-label="Buka Menu" class="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-600 md:hidden dark:border-slate-700 dark:text-slate-300">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenuDrawer" class="hidden border-b border-slate-200 bg-white px-4 py-4 md:hidden dark:border-slate-800 dark:bg-[#070e18]">
+      <div class="flex flex-col gap-3">
+        <a href="index.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Beranda</a>
+        <a href="profil.html" class="text-sm font-bold text-brand-600 dark:text-brand-400">Profil &amp; Visi Misi</a>
+        <a href="pendidikan.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Pendidikan &amp; Target Belajar</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Fasilitas Pesantren</a>
+        <a href="biaya.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Biaya &amp; Syarat Masuk</a>
+        <a href="pendaftaran.html" class="mt-2 flex items-center justify-center gap-2 rounded-xl bg-brand-600 py-2.5 text-sm font-semibold text-white">Daftar Sekarang &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="relative z-10 flex-grow py-10 md:py-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      
+      <!-- HERO HEADER CARD -->
+      <div class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/90">
+        <div class="absolute -top-12 -right-12 h-44 w-44 rounded-full bg-cyan-400/10 blur-3xl"></div>
+        <span class="rounded-full bg-cyan-50 px-3.5 py-1 text-xs font-bold text-cyan-700 dark:bg-cyan-950 dark:text-cyan-400">
+          PROFIL LEMBAGA
+        </span>
+        <h1 class="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+          Mengenal Ma'had Al-Iktisyaf Cirebon
+        </h1>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
+          Motto Kehormatan: <strong class="text-brand-600 dark:text-brand-400 font-serif italic text-base">"Ma'had Al-Iktisyaf, Ilmi wa Adabi"</strong> (Berilmu dan Beradab). Didirikan sebagai sub dari Ma'had Al-Shighor Pondok Pesantren Gedongan guna memperluas jangkauan pendidikan santri yang berakhlak mulia dan berdaya saing global.
+        </p>
+
+        <!-- Legalitas Quick Pill -->
+        <div class="mt-6 flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+          <div class="flex items-center gap-1.5 rounded-lg bg-slate-50 px-3 py-1.5 border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+            <i data-lucide="award" class="h-4 w-4 text-brand-600 dark:text-brand-400"></i>
+            <span>SK Kemenkumham RI: No. AHU-0011434.AH.01.04.Tahun 2023</span>
+          </div>
+          <div class="flex items-center gap-1.5 rounded-lg bg-slate-50 px-3 py-1.5 border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+            <i data-lucide="map-pin" class="h-4 w-4 text-cyan-600 dark:text-cyan-400"></i>
+            <span>± 1 KM dari Ma'had Al-Shighor Gedongan Pusat</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE PROFIL TABS (REACT-STYLE) -->
+      <div class="mt-10">
+        <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-3 dark:border-slate-800">
+          <button onclick="switchProfilTab('tab-sejarah')" id="btn-tab-sejarah" class="profil-tab-btn rounded-xl bg-brand-600 px-4 py-2 text-xs font-bold text-white shadow-sm transition">
+            1. Sejarah &amp; Kemitraan
+          </button>
+          <button onclick="switchProfilTab('tab-pengasuh')" id="btn-tab-pengasuh" class="profil-tab-btn rounded-xl bg-white px-4 py-2 text-xs font-bold text-slate-600 border border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 transition">
+            2. Figur Pengasuh &amp; Asatidz
+          </button>
+          <button onclick="switchProfilTab('tab-visimisi')" id="btn-tab-visimisi" class="profil-tab-btn rounded-xl bg-white px-4 py-2 text-xs font-bold text-slate-600 border border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 transition">
+            3. Visi &amp; Misi
+          </button>
+          <button onclick="switchProfilTab('tab-komitmen')" id="btn-tab-komitmen" class="profil-tab-btn rounded-xl bg-white px-4 py-2 text-xs font-bold text-slate-600 border border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 transition">
+            4. 7 Komitmen Santri
+          </button>
+        </div>
+
+        <!-- TAB 1: SEJARAH & KEMITRAAN -->
+        <div id="tab-sejarah" class="profil-pane mt-6 space-y-6">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 sm:p-8">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <i data-lucide="history" class="h-5 w-5 text-brand-600 dark:text-brand-400"></i>
+              Latar Belakang Pendirian
+            </h3>
+            <div class="mt-4 space-y-4 text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-300">
+              <p>
+                Ma'had Al-Iktisyaf merupakan sub dari <strong>Ma'had Al-Shighor Pondok Pesantren Gedongan</strong>, yang menjadi salah satu ma'had rintisan <strong>Abuya Bisyri Imam</strong>, yang terletak &plusmn; 1 KM dari Ma'had Al-Shighor pusat di Desa Ender, Kecamatan Pangenan, Kabupaten Cirebon.
+              </p>
+              <p>
+                Dengan penerapan sistem, program, dan kurikulum pembelajaran yang sama dengan di Al-Shighor—seperti Program Kajian Kitab Kuning, Program Bahasa Arab dan Inggris Aktif, Program Tahfidzul Qur'an, dan bimbingan akhlak 24 jam.
+              </p>
+              
+              <div class="rounded-2xl border border-brand-200 bg-brand-50/70 p-4 dark:border-brand-900/60 dark:bg-brand-950/40">
+                <span class="font-bold text-brand-900 dark:text-brand-300">Integrasi Sekolah Formal di Jenjang SMP:</span>
+                <p class="mt-1 text-xs text-brand-800 dark:text-brand-400">
+                  Seluruh santriwan dan santriwati menempuh jenjang sekolah formal di <strong>Jenjang SMP</strong> dengan kurikulum terpadu nasional dan kepesantrenan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: PENGASUH & ASATIDZ -->
+        <div id="tab-pengasuh" class="profil-pane hidden mt-6 space-y-6">
+          <div class="grid gap-6 md:grid-cols-2">
+            
+            <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 sm:p-8">
+              <div class="flex items-center gap-4">
+                <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 dark:bg-cyan-950 dark:text-cyan-400">
+                  <i data-lucide="user-check" class="h-8 w-8"></i>
+                </div>
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-600">PENGASUH UTAMA</span>
+                  <h4 class="text-base font-bold text-slate-900 dark:text-white sm:text-lg">Abta Muhammad Syauqi, S.Pd, M.Pd</h4>
+                  <p class="text-xs text-slate-500">Putra Pertama Abuya Bisyri Imam</p>
+                </div>
+              </div>
+              <p class="mt-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                Memimpin pengelolaan kurikulum terpadu antara keilmuan salafiyah pondok pesantren Gedongan dan pendidikan modern serta program internasional.
+              </p>
+            </div>
+
+            <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 sm:p-8">
+              <div class="flex items-center gap-4">
+                <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-400">
+                  <i data-lucide="user-check" class="h-8 w-8"></i>
+                </div>
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-brand-600">PENGASUH PUTRI</span>
+                  <h4 class="text-base font-bold text-slate-900 dark:text-white sm:text-lg">Ning Aniq Faiqotul Himmah, M.Pd</h4>
+                  <p class="text-xs text-slate-500">Pendidik &amp; Pembina Keputrian</p>
+                </div>
+              </div>
+              <p class="mt-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                Membimbing adab santriwati, program tahfidz akhwat, pembiasaan bahasa harian, dan tata kelola asrama putri yang mandiri dan teratur.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/90">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Dewan Asatidz &amp; Tenaga Pendidik</h4>
+            <p class="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+              Didukung oleh guru dan ustadz lulusan S1, S2, maupun pesantren salaf terkemuka. Sebagian besar guru dan asisten bertempat tinggal di lingkungan ma'had sehingga santri berada dalam bimbingan intensif selama 24 jam.
+            </p>
+          </div>
+        </div>
+
+        <!-- TAB 3: VISI & MISI -->
+        <div id="tab-visimisi" class="profil-pane hidden mt-6 space-y-6">
+          <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900/90">
+            <span class="rounded bg-brand-100 px-2.5 py-1 text-[11px] font-bold text-brand-800 dark:bg-brand-950 dark:text-brand-300">VISI LEMBAGA</span>
+            <h3 class="mt-3 text-xl font-extrabold text-slate-900 sm:text-2xl dark:text-white">
+              "Ma'had Al-Iktisyaf sebagai pusat pengembangan model pendidikan integratif, kompetitif, dan berwawasan global."
+            </h3>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+              <span class="text-xs font-bold text-cyan-600 dark:text-cyan-400">MISI 1</span>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                Membina santri yang menguasai bahasa internasional (Bahasa Arab dan Inggris), kuat iman, berjiwa kewirausahaan, dan unggul dalam ilmu pengetahuan dan teknologi.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+              <span class="text-xs font-bold text-brand-600 dark:text-brand-400">MISI 2</span>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                Mengembangkan kegiatan pendidikan keahlian dengan model-model pembelajaran yang mengarah kepada pembekalan <em>life skill</em> dan mempunyai akuntabilitas publik.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+              <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400">MISI 3</span>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                Melahirkan lulusan yang berkualitas, integratif, memahami ilmu keislaman dengan metodologi kontemporer dalam prinsip <em>al-muhafazhatu 'alal qadimi as-shalih wal akhdzu bil jadidil ashlah</em>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: 7 KOMITMEN -->
+        <div id="tab-komitmen" class="profil-pane hidden mt-6 space-y-4">
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 flex gap-3 items-center">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-xs font-bold text-brand-700">1</span>
+              <div><strong class="block text-xs text-slate-900 dark:text-white">Akhlakul Karimah</strong><span class="text-[11px] text-slate-500">Membentuk budi pekerti dan adab mulia.</span></div>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 flex gap-3 items-center">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cyan-100 text-xs font-bold text-cyan-700">2</span>
+              <div><strong class="block text-xs text-slate-900 dark:text-white">Intelektual / Profesionalitas</strong><span class="text-[11px] text-slate-500">Kecerdasan akademis dan ketekunan belajar.</span></div>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 flex gap-3 items-center">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-xs font-bold text-brand-700">3</span>
+              <div><strong class="block text-xs text-slate-900 dark:text-white">Hidup Untuk Pengabdian</strong><span class="text-[11px] text-slate-500">Menghidupkan nilai khidmah bagi agama dan umat.</span></div>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 flex gap-3 items-center">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cyan-100 text-xs font-bold text-cyan-700">4</span>
+              <div><strong class="block text-xs text-slate-900 dark:text-white">Peduli Terhadap Kemajuan</strong><span class="text-[11px] text-slate-500">Kritis dan solutif menghadapi era globalisasi.</span></div>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 flex gap-3 items-center">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-xs font-bold text-brand-700">5</span>
+              <div><strong class="block text-xs text-slate-900 dark:text-white">Kemandirian Dalam Berkarya</strong><span class="text-[11px] text-slate-500">Jiwa tangguh dan wirausaha santripreneur.</span></div>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 flex gap-3 items-center">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cyan-100 text-xs font-bold text-cyan-700">6</span>
+              <div><strong class="block text-xs text-slate-900 dark:text-white">Kebersamaan Dalam Semua Hal</strong><span class="text-[11px] text-slate-500">Ukhuwah islamiyah dan solidaritas asrama.</span></div>
+            </div>
+            <div class="col-span-1 sm:col-span-2 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/90 flex gap-3 items-center">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-xs font-bold text-emerald-700">7</span>
+              <div><strong class="block text-xs text-slate-900 dark:text-white">Patriotisme</strong><span class="text-[11px] text-slate-500">Cinta tanah air dan setia menjaga keutuhan NKRI.</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA FOOTER SECTION -->
+      <div class="mt-12 text-center">
+        <a href="pendaftaran.html" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-8 py-3.5 text-xs font-bold text-white shadow-md hover:bg-brand-500">
+          <span>Daftar Santri Baru Sekarang</span>
+          <i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FLOATING WHATSAPP -->
+  <aside aria-label="Layanan Bantuan Cepat" class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/628979832312" target="_blank" class="flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-xs font-bold text-white shadow-xl transition hover:scale-105">
+      <i data-lucide="message-circle" class="h-5 w-5"></i>
+      <span class="hidden sm:inline">Hubungi Panitia PPDB</span>
+    </a>
+  </aside>
+
+  <footer class="border-t border-slate-800 bg-[#070e18] text-slate-400 py-8 text-xs text-center">
+    <p>&copy; 2026 Ma'had Al-Iktisyaf Cirebon • Sub Ma'had Al-Shighor Gedongan</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function switchProfilTab(tabId) {
+      document.querySelectorAll('.profil-pane').forEach(p => p.classList.add('hidden'));
+      const active = document.getElementById(tabId);
+      if (active) active.classList.remove('hidden');
+
+      document.querySelectorAll('.profil-tab-btn').forEach(btn => {
+        btn.className = "profil-tab-btn rounded-xl bg-white px-4 py-2 text-xs font-bold text-slate-600 border border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 transition";
+      });
+      const activeBtn = document.getElementById(`btn-${tabId}`);
+      if (activeBtn) {
+        activeBtn.className = "profil-tab-btn rounded-xl bg-brand-600 px-4 py-2 text-xs font-bold text-white shadow-sm transition";
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendidikan &amp; Kurikulum — Ma'had Al-Iktisyaf Cirebon</title>
+  <meta name="description" content="Kurikulum terpadu pesantren salafiyah, jenjang SMP Ash Shighor & MA/SMK, target tahfidz 6 juz, bilingual harian dan pertukaran santri.">
+  
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+              400: '#34d399', 500: '#10b981', 600: '#00b865', 700: '#047857',
+              800: '#065f46', 900: '#064e3b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#fafcfa] text-slate-800 antialiased transition-colors duration-300 dark:bg-[#070e18] dark:text-slate-100 flex flex-col min-h-screen relative overflow-x-hidden">
+
+  <!-- BACKGROUND DECORATIVE ELEMENTS -->
+  <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div class="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl dark:bg-emerald-500/10"></div>
+    <div class="absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl dark:bg-cyan-500/10"></div>
+  </div>
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="relative z-50 bg-gradient-to-r from-emerald-600 via-brand-600 to-cyan-600 py-2 text-center text-xs font-semibold text-white shadow-sm">
+    <div class="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4">
+      <span class="rounded-full bg-white/20 px-2 py-0.5 text-[10px] uppercase tracking-wider backdrop-blur-sm">KURIKULUM</span>
+      <span>Integrasi Sekolah Formal SMP Ash Shighor &amp; Madrasah Diniyah Salafiyah Gedongan</span>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-colors duration-300 dark:border-slate-800/80 dark:bg-[#070e18]/90">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="index.html" class="group flex items-center gap-3">
+        <img src="logo.png" alt="Logo Ma'had Al-Iktisyaf" class="h-10 w-auto object-contain transition-transform group-hover:scale-105">
+        <div>
+          <span class="block text-base font-extrabold tracking-tight text-slate-900 dark:text-white">Ma'had Al-Iktisyaf</span>
+          <span class="block text-xs font-medium text-slate-500 dark:text-slate-400">Sub Ma'had Al-Shighor Gedongan</span>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-6 lg:gap-8 md:flex">
+        <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Beranda</a>
+        <a href="profil.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Profil</a>
+        <a href="pendidikan.html" class="text-sm font-bold text-brand-600 dark:text-brand-400">Pendidikan</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Fasilitas</a>
+        <a href="biaya.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Biaya &amp; Syarat</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Ganti Tema" class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+          <i id="themeIcon" data-lucide="moon" class="h-4 w-4"></i>
+        </button>
+        <a href="pendaftaran.html" class="hidden items-center gap-1.5 rounded-full bg-brand-600 px-5 py-2 text-sm font-bold text-white shadow-md shadow-brand-500/25 hover:bg-brand-500 sm:inline-flex">
+          Daftar Sekarang &rarr;
+        </a>
+        <button id="mobileMenuBtn" aria-label="Buka Menu" class="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-600 md:hidden dark:border-slate-700 dark:text-slate-300">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenuDrawer" class="hidden border-b border-slate-200 bg-white px-4 py-4 md:hidden dark:border-slate-800 dark:bg-[#070e18]">
+      <div class="flex flex-col gap-3">
+        <a href="index.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Beranda</a>
+        <a href="profil.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Profil &amp; Visi Misi</a>
+        <a href="pendidikan.html" class="text-sm font-bold text-brand-600 dark:text-brand-400">Pendidikan &amp; Target Belajar</a>
+        <a href="fasilitas.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Fasilitas Pesantren</a>
+        <a href="biaya.html" class="text-sm font-medium text-slate-600 dark:text-slate-300">Biaya &amp; Syarat Masuk</a>
+        <a href="pendaftaran.html" class="mt-2 flex items-center justify-center gap-2 rounded-xl bg-brand-600 py-2.5 text-sm font-semibold text-white">Daftar Sekarang &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="relative z-10 flex-grow py-10 md:py-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      
+      <!-- HERO HEADER CARD -->
+      <div class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/90">
+        <span class="rounded-full bg-brand-100 px-3.5 py-1 text-xs font-bold text-brand-800 dark:bg-brand-950 dark:text-brand-300">
+          SISTEM PENDIDIKAN INTEGRATIF
+        </span>
+        <h1 class="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+          Kurikulum, Target Belajar &amp; Program Unggulan
+        </h1>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
+          Memadukan keutamaan Dirosah Salafiyah khas Pesantren Gedongan dengan kurikulum nasional Kemendikbudristek di Jenjang SMP untuk melahirkan generasi yang kokoh akidah, luas ilmu, dan cakap berbahasa internasional.
+        </p>
+
+        <!-- Stats Bar -->
+        <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 border-t border-slate-100 pt-6 dark:border-slate-800">
+          <div>
+            <span class="block text-xl font-black text-brand-600 sm:text-2xl">6 Tahun</span>
+            <span class="text-xs text-slate-500">Masa Pendidikan (SMP + MA)</span>
+          </div>
+          <div>
+            <span class="block text-xl font-black text-cyan-600 sm:text-2xl">Min. 6 Juz</span>
+            <span class="text-xs text-slate-500">Target Tahfidz &amp; Tafsir</span>
+          </div>
+          <div>
+            <span class="block text-xl font-black text-emerald-600 sm:text-2xl">2 Bahasa</span>
+            <span class="text-xs text-slate-500">Arab &amp; Inggris Aktif</span>
+          </div>
+          <div>
+            <span class="block text-xl font-black text-slate-900 sm:text-2xl dark:text-white">Global</span>
+            <span class="text-xs text-slate-500">Student Exchange Program</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE LEVEL SWITCHER (JENJANG SMP vs MA/SMK) -->
+      <div class="mt-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900/90">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase text-brand-600">JENJANG PENDIDIKAN FORMAL</span>
+            <h2 class="text-xl font-black text-slate-900 dark:text-white sm:text-2xl">Pilih Jenjang Pilihan Santri</h2>
+          </div>
+          <div class="inline-flex rounded-2xl bg-slate-100 p-1.5 dark:bg-slate-800">
+            <button onclick="switchLevel('level-smp')" id="btn-level-smp" class="rounded-xl bg-brand-600 px-5 py-2 text-xs font-bold text-white shadow-sm transition">
+              Jenjang SMP
+            </button>
+            <button onclick="switchLevel('level-ma')" id="btn-level-ma" class="rounded-xl px-5 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 dark:text-slate-300 transition">
+              Jenjang Lanjutan (MA/SMK)
+            </button>
+          </div>
+        </div>
+
+        <!-- Level SMP Content -->
+        <div id="level-smp" class="level-pane mt-6 space-y-4">
+          <div class="rounded-2xl border border-brand-100 bg-brand-50/60 p-5 dark:border-brand-900/40 dark:bg-brand-950/30">
+            <h3 class="text-sm font-bold text-brand-900 dark:text-brand-300">Jenjang SMP (Terakreditasi Resmi)</h3>
+            <p class="mt-1 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Santri tingkat pertama menempuh pendidikan sekolah formal tingkat menengah pertama di Jenjang SMP. Kurikulum nasional diperkuat dengan muatan lokal kepesantrenan Al-Shighor, laboratorium komputer, dan pembelajaran sains terpadu.
+            </p>
+            <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-brand-700 dark:text-brand-300">
+              <i data-lucide="check-circle" class="h-4 w-4"></i>
+              <span>Ijazah formal negeri terakreditasi resmi &amp; ijazah pondok pesantren.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Level MA Content -->
+        <div id="level-ma" class="level-pane hidden mt-6 space-y-4">
+          <div class="rounded-2xl border border-cyan-100 bg-cyan-50/60 p-5 dark:border-cyan-900/40 dark:bg-cyan-950/30">
+            <h3 class="text-sm font-bold text-cyan-900 dark:text-cyan-300">Jenjang Lanjutan Menengah Atas (MA / SMK)</h3>
+            <p class="mt-1 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Setelah menyelesaikan pendidikan 3 tahun di SMP, santri dipersiapkan melanjutkan pendidikan tingkat menengah atas (Madrasah Aliyah / SMK) binaan ma'had dengan fokus penguasaan kitab kuning mendalam, persiapan tes perguruan tinggi dalam/luar negeri (Timur Tengah &amp; Barat), dan kejuruan santripreneur.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 PROGRAM UNGGULAN & TARGET BELAJAR -->
+      <section class="mt-12">
+        <div class="text-center">
+          <span class="text-xs font-bold tracking-wider text-cyan-600 uppercase">TARGET OUTPUT KELULUSAN</span>
+          <h2 class="mt-1 text-2xl font-black text-slate-900 sm:text-3xl dark:text-white">
+            4 Pilar Kekhususan Belajar Santri
+          </h2>
+        </div>
+
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          
+          <!-- Card 1 -->
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-100 text-brand-600 dark:bg-brand-950 dark:text-brand-400">
+              <i data-lucide="book-marked" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-4 text-base font-bold text-slate-900 dark:text-white">Tahfidz min. 6 Juz &amp; Tafsir</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+              Hafal Al-Qur'an minimal 6 Juz beserta pemahaman tafsirnya, tajwid, makharijul huruf yang fasih, dan tata cara tartil tilawah.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-600 dark:bg-cyan-950 dark:text-cyan-400">
+              <i data-lucide="scroll" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-4 text-base font-bold text-slate-900 dark:text-white">Dirosah Salafiyah Kitab Kuning</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+              Mampu membaca, mengkaji, dan memahami kitab-kitab standar salafiyah turats berdasarkan kurikulum Madrasah Diniyah Al-Shighor Gedongan.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
+              <i data-lucide="languages" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-4 text-base font-bold text-slate-900 dark:text-white">24H Bilingual Immersion</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+              Bahasa Inggris dan Bahasa Arab dijadikan bahasa pengantar dalam proses belajar-mengajar di kelas dan percakapan harian asrama santri.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-100 text-purple-600 dark:bg-purple-950 dark:text-purple-400">
+              <i data-lucide="plane" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-4 text-base font-bold text-slate-900 dark:text-white">Student Exchange Program</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+              Program pertukaran santri khusus antar cabang Al-Shighor dan mitra nasional untuk melatih mental kepemimpinan dan wawasan nusantara.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- JADWAL AKTIVITAS HARIAN SANTRI (INTERACTIVE TIMELINE) -->
+      <section class="mt-14 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900/90">
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="clock" class="h-5 w-5 text-brand-600"></i>
+          Rutinitas &amp; Jadwal Harian Santri
+        </h3>
+        <p class="mt-1 text-xs text-slate-500">Disiplin dan pembiasaan adab dari bangun tidur hingga istirahat malam.</p>
+
+        <div class="mt-6 divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+          <div class="py-3 flex items-center justify-between">
+            <span class="font-bold text-brand-600 dark:text-brand-400 w-28">04.00 - 05.30</span>
+            <span class="flex-grow text-slate-700 dark:text-slate-200">Qiyamul Lail, Shalat Shubuh Berjamaah &amp; Halaqah Al-Qur'an</span>
+          </div>
+          <div class="py-3 flex items-center justify-between">
+            <span class="font-bold text-brand-600 dark:text-brand-400 w-28">05.30 - 06.30</span>
+            <span class="flex-grow text-slate-700 dark:text-slate-200">Kosakata Bahasa Harian (Mufradat / Vocabulary) &amp; Sarapan</span>
+          </div>
+          <div class="py-3 flex items-center justify-between">
+            <span class="font-bold text-brand-600 dark:text-brand-400 w-28">07.00 - 13.00</span>
+            <span class="flex-grow text-slate-700 dark:text-slate-200">Sekolah Formal Jenjang SMP &amp; Shalat Dzuhur</span>
+          </div>
+          <div class="py-3 flex items-center justify-between">
+            <span class="font-bold text-brand-600 dark:text-brand-400 w-28">14.00 - 16.30</span>
+            <span class="flex-grow text-slate-700 dark:text-slate-200">Madrasah Diniyah Salafiyah (Kajian Kitab Kuning Gedongan) &amp; Ashar</span>
+          </div>
+          <div class="py-3 flex items-center justify-between">
+            <span class="font-bold text-brand-600 dark:text-brand-400 w-28">18.00 - 20.30</span>
+            <span class="flex-grow text-slate-700 dark:text-slate-200">Maghrib, Setoran Tahfidz, Isya &amp; Pengulangan Materi (Muthala'ah)</span>
+          </div>
+          <div class="py-3 flex items-center justify-between">
+            <span class="font-bold text-brand-600 dark:text-brand-400 w-28">21.30 - 04.00</span>
+            <span class="flex-grow text-slate-700 dark:text-slate-200">Istirahat Malam &amp; Tidur Asrama</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BUTTON -->
+      <div class="mt-12 text-center">
+        <a href="pendaftaran.html" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-8 py-3.5 text-xs font-bold text-white shadow-md hover:bg-brand-500">
+          <span>Daftar Santri Baru Sekarang</span>
+          <i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FLOATING WHATSAPP -->
+  <aside aria-label="Layanan Bantuan Cepat" class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/628979832312" target="_blank" class="flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-xs font-bold text-white shadow-xl transition hover:scale-105">
+      <i data-lucide="message-circle" class="h-5 w-5"></i>
+      <span class="hidden sm:inline">Hubungi Panitia PPDB</span>
+    </a>
+  </aside>
+
+  <footer class="border-t border-slate-800 bg-[#070e18] text-slate-400 py-8 text-xs text-center">
+    <p>&copy; 2026 Ma'had Al-Iktisyaf Cirebon • Sub Ma'had Al-Shighor Gedongan</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function switchLevel(levelId) {
+      document.querySelectorAll('.level-pane').forEach(p => p.classList.add('hidden'));
+      const active = document.getElementById(levelId);
+      if (active) active.classList.remove('hidden');
+
+      const btnSmp = document.getElementById('btn-level-smp');
+      const btnMa = document.getElementById('btn-level-ma');
+
+      if (levelId === 'level-smp') {
+        btnSmp.className = "rounded-xl bg-brand-600 px-5 py-2 text-xs font-bold text-white shadow-sm transition";
+        btnMa.className = "rounded-xl px-5 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 dark:text-slate-300 transition";
+      } else {
+        btnMa.className = "rounded-xl bg-cyan-600 px-5 py-2 text-xs font-bold text-white shadow-sm transition";
+        btnSmp.className = "rounded-xl px-5 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 dark:text-slate-300 transition";
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
