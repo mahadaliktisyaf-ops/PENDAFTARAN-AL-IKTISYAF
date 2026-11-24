@@ -58,8 +58,10 @@ async function dbCheckConnection() {
     } else {
       result.status = 'error';
       const errText = await res.text();
-      if (res.status === 401) {
-        result.message = `Error 401 (Unauthorized): Kunci API (${SUPABASE_ANON_KEY.slice(0, 15)}...) ditolak. Supabase REST membutuhkan Anon Key JWT yang diawali dengan "eyJhbGci...". Detail: ${errText}`;
+      if (errText.includes("permission denied for table") || errText.includes("42501")) {
+        result.message = `Izin akses (GRANT) belum diberikan ke tabel pendaftar_ppdb! Jalankan perintah: <strong>GRANT ALL ON TABLE public.pendaftar_ppdb TO anon, authenticated;</strong> di SQL Editor Supabase.`;
+      } else if (res.status === 401) {
+        result.message = `Error 401 (Unauthorized): Kunci API ditolak atau otentikasi gagal. Detail: ${errText}`;
       } else if (res.status === 404) {
         result.message = `Error 404 (Not Found): Tabel 'pendaftar_ppdb' belum dibuat di database Supabase! Buka SQL Editor di Supabase dan jalankan script SQL pembuatan tabel.`;
       } else {
