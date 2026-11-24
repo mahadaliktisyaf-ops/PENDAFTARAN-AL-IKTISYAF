@@ -455,7 +455,7 @@ function handleFormSubmission(event) {
 
   const waConfirmLink = document.getElementById('waConfirmLink');
   if (waConfirmLink) {
-    waConfirmLink.href = `https://wa.me/628979832312?text=${waMessage}`;
+    waConfirmLink.href = `https://wa.me/6283185526556?text=${waMessage}`;
   }
 
   // Show Modal
